@@ -23,3 +23,10 @@ export const apiSlice = createApi({
     }),
   }),
 });
+
+export const {
+  useGetAllCategoriesQuery,
+  useGetProductsByCategoryIdQuery,
+  useGetAllProductsQuery,
+  useGetProductByIdQuery,
+} = apiSlice;
