@@ -26,22 +26,19 @@ ol {
   --color-light-grey: #f1f3f4;
   --color-grey: #8b8b8b;
   --color-white: #ffffff;
+  --color-grey-divider: #dddddd;
 
   /* Typography */
   --font-main: 'Montserrat', sans-serif;
 
   /* Layout */
-  --container-width: 1360px;
-  --container-padding: 40px;
+  --container-width: 1440px;
+  --container-padding: 0 40px;
   --border-radius-main: 12px;
 }
 
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 var(--container-padding);
-}
-
-h1 {
-  font-family: inherit;
+  padding: var(--container-padding);
 }

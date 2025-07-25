@@ -1,19 +1,10 @@
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import Header from '@/components/Header';
 
 function RootLayout() {
   return (
     <>
-      <header style={{ padding: '20px', backgroundColor: '#f0f0f0' }}>
-        <nav>
-          <Link to="/" style={{ marginRight: '15px' }}>
-            Main Page
-          </Link>
-          <Link to="/categories" style={{ marginRight: '15px' }}>
-            Categories
-          </Link>
-        </nav>
-      </header>
-
+      <Header />
       <main style={{ padding: '20px' }}>
         <Outlet />
       </main>
