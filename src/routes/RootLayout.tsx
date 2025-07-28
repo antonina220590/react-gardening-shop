@@ -5,7 +5,7 @@ function RootLayout() {
   return (
     <>
       <Header />
-      <main style={{ padding: '20px' }}>
+      <main>
         <Outlet />
       </main>
       <footer
