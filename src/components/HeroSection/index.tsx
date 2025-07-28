@@ -1,4 +1,5 @@
 import styles from './HeroSection.module.css';
+import ButtonCard from '../ButtonCard';
 
 export default function HeroSection() {
   return (
@@ -8,6 +9,7 @@ export default function HeroSection() {
           Amazing Discounts
           <br /> on Garden Products!
         </h1>
+        <ButtonCard text="Check out" />
       </div>
     </section>
   );

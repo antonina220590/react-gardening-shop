@@ -13,9 +13,10 @@
 .hero_title {
   display: flex;
   width: 100%;
-  font-size: 96px;
+  font-size: clamp(42px, 8vw, 96px);
   font-weight: 700;
   color: var(--color-white);
   line-height: 1.1;
   letter-spacing: -2.5px;
+  padding-bottom: 40px;
 }
