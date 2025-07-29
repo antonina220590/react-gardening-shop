@@ -1,0 +1,15 @@
+.button_nav {
+  background-color: var(--color-light-grey);
+  color: var(--color-grey);
+  padding: 8px 16px;
+  border: 1px solid var(--color-grey-divider);
+  outline: none;
+  border-radius: var(--border-radius-main);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.button_nav:hover {
+  color: var(--color-text);
+}

@@ -1,5 +1,6 @@
 import styles from './HeroSection.module.css';
-import ButtonCard from '../ButtonCard';
+import ButtonCard from '../ui/ButtonCard';
+import { Link } from 'react-router-dom';
 
 export default function HeroSection() {
   return (
@@ -9,7 +10,10 @@ export default function HeroSection() {
           Amazing Discounts
           <br /> on Garden Products!
         </h1>
-        <ButtonCard text="Check out" />
+        <Link to="/sales">
+          ≈
+          <ButtonCard text="Check out" />
+        </Link>
       </div>
     </section>
   );
