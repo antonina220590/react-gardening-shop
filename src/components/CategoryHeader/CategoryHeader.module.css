@@ -1,5 +1,5 @@
 .category_name {
-  font-size: 64px;
+  font-size: clamp(32px, 1.25rem + 3.74vw, 64px);
   font-weight: 700;
 }
 

@@ -11,7 +11,6 @@ export default function HeroSection() {
           <br /> on Garden Products!
         </h1>
         <Link to="/sales">
-          ≈
           <ButtonCard text="Check out" />
         </Link>
       </div>

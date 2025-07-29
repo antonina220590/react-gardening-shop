@@ -13,3 +13,10 @@
 .button_card:hover {
   background-color: var(--color-text);
 }
+
+@media (max-width: 850px) {
+  .button_card {
+    padding: 12px 42px;
+    font-size: 15px;
+  }
+}

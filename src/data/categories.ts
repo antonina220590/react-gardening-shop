@@ -6,7 +6,7 @@ import category5 from '../assets/pots.png';
 
 export const categoriesMap = [
   { id: 1, title: 'Fertilizer', image: category1 },
-  { id: 2, title: 'Protective products', image: category2 },
+  { id: 2, title: 'Protective products and septic tanks', image: category2 },
   { id: 3, title: 'Planting material	', image: category3 },
   { id: 4, title: 'Tools and equipment', image: category4 },
   { id: 5, title: 'Pots and planters', image: category5 },
