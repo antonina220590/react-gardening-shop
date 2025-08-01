@@ -4,6 +4,7 @@ import FormComponent, { type FormInput } from '../FormComponent';
 import { useSendSaleRequestMutation } from '../../store/api/apiSlice';
 import type { SubmitHandler } from 'react-hook-form';
 import ButtonBanner from '../ui/ButtonBanner';
+import { toast } from 'react-toastify';
 
 type SaleFormInputs = {
   name: string;
@@ -47,6 +48,7 @@ export default function DiscountSection() {
       }
     } catch (error) {
       console.error('Failed to send sale request:', error);
+      toast.error('Failed to send sale request. Please try again.');
     }
   };
 

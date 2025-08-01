@@ -6,7 +6,7 @@
   background-color: transparent;
   width: 100%;
   font-family: var(--font-main);
-  font-size: 20px;
+  font-size: clamp(1rem, 0.91rem + 0.38vw, 1.25rem);
   font-weight: 500;
   padding: 16px 32px;
   border-radius: var(--border-radius-main);
@@ -42,4 +42,8 @@
 .error_placeholder {
   min-height: 16px;
   text-align: center;
+}
+
+.form input:focus {
+  outline: none;
 }

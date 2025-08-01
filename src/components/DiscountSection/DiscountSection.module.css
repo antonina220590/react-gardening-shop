@@ -7,7 +7,6 @@
   justify-content: center;
   flex-direction: column;
   position: relative;
-  min-height: 486px;
 }
 
 .discount_title {
@@ -30,10 +29,24 @@
   left: 2%;
   bottom: 0;
   width: 55%;
-  height: auto;
+  height: 70%;
 }
 
 .discount_form {
   width: 45%;
   max-width: 516px;
+}
+
+@media (max-width: 850px) {
+  .discount_image {
+    display: none;
+  }
+
+  .discount_content {
+    justify-content: center;
+  }
+
+  .discount_form {
+    width: 80%;
+  }
 }
