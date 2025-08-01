@@ -1,13 +1,14 @@
 .button_card {
   background-color: var(--color-primary);
   color: var(--color-white);
-  padding: 16px 56px;
+  padding: 16px 32px;
   border: none;
   outline: none;
   border-radius: var(--border-radius-main);
+  cursor: pointer;
+  width: 100%;
   font-size: 20px;
   font-weight: 600;
-  cursor: pointer;
 }
 
 .button_card:hover {
