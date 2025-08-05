@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import ButtonCard from '../ui/ButtonCard';
 import styles from './ProductCard.module.css';
 type ProductCardProps = {
@@ -38,15 +39,19 @@ export default function ProductCard({
         )}
         <img src={imageUrl} alt={title}></img>
       </div>
-      <div className={styles.product_info}>
-        <p className={styles.product_title}>{title}</p>
-        <div className={styles.price_container}>
-          <p className={styles.product_price}>${price}</p>
-          {discount_price && (
-            <p className={styles.product_discounted_price}>${discount_price}</p>
-          )}
+      <Link to={`/products/${id}`}>
+        <div className={styles.product_info}>
+          <p className={styles.product_title}>{title}</p>
+          <div className={styles.price_container}>
+            <p className={styles.product_price}>${price}</p>
+            {discount_price && (
+              <p className={styles.product_discounted_price}>
+                ${discount_price}
+              </p>
+            )}
+          </div>
         </div>
-      </div>
+      </Link>
     </div>
   );
 }
