@@ -1,32 +1,26 @@
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import Header from '@/components/Header';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import styles from './RootLayout.module.css';
+import Footer from '@/components/Footer';
 
 function RootLayout() {
   return (
-    <>
-      <header style={{ padding: '20px', backgroundColor: '#f0f0f0' }}>
-        <nav>
-          <Link to="/" style={{ marginRight: '15px' }}>
-            Main Page
-          </Link>
-          <Link to="/categories" style={{ marginRight: '15px' }}>
-            Categories
-          </Link>
-        </nav>
-      </header>
-
-      <main style={{ padding: '20px' }}>
+    <div className={styles.layout}>
+      <Header />
+      <main className={styles.main}>
         <Outlet />
       </main>
-      <footer
-        style={{
-          padding: '20px',
-          backgroundColor: '#f0f0f0',
-          marginTop: '40px',
-        }}
-      >
-        <p>Contact Info Here</p>
-      </footer>
-    </>
+      <Footer />
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        closeOnClick
+        theme="light"
+      />
+    </div>
   );
 }
 

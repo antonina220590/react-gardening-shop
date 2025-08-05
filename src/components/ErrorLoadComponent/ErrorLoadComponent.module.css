@@ -1,0 +1,23 @@
+.error_container {
+  margin-top: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  min-height: 418px;
+  border-radius: var(--border-radius-big);
+  align-items: start;
+  background-image: url('/error_plant.png');
+  background-size: contain;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-color: var(--color-light-grey);
+  padding: 16px;
+}
+
+.error_text {
+  font-family: var(--font-main);
+  font-size: clamp(25px, 8vw, 46px);
+  font-weight: 600;
+  color: var(--color-error);
+  text-align: center;
+}

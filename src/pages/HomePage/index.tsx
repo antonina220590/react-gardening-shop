@@ -1,7 +1,14 @@
+import CategorySection from '@/components/CategorySection';
+import DiscountSection from '@/components/DiscountSection';
+import HeroSection from '@/components/HeroSection';
+import SaleSection from '@/components/SaleSection';
 export default function HomePage() {
   return (
     <div>
-      <h1>I am your home page</h1>
+      <HeroSection />
+      <CategorySection />
+      <DiscountSection />
+      <SaleSection />
     </div>
   );
 }

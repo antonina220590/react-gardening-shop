@@ -1,0 +1,41 @@
+.category {
+  margin-top: 80px;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-top: 35px;
+  justify-items: center;
+}
+
+.category_card {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+  align-items: center;
+  max-width: 316px;
+}
+
+.category_card img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card_title {
+  font-family: var(--font-main);
+  font-size: clamp(1rem, 0.9rem + 0.37vw, 1.5rem);
+  font-weight: 500;
+  color: var(--color-text);
+  max-width: 100%;
+  text-align: center;
+}
+
+@media (max-width: 850px) {
+  .categories {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+  }
+}

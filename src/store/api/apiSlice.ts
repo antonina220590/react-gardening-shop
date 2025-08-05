@@ -21,6 +21,16 @@ export const apiSlice = createApi({
     getProductById: builder.query<Product, string>({
       query: (id) => `/products/${id}`,
     }),
+    sendSaleRequest: builder.mutation<
+      void,
+      { name: string; phone: string; email: string }
+    >({
+      query: (body) => ({
+        url: '/sale/send',
+        method: 'POST',
+        body,
+      }),
+    }),
   }),
 });
 
@@ -29,4 +39,5 @@ export const {
   useGetProductsByCategoryIdQuery,
   useGetAllProductsQuery,
   useGetProductByIdQuery,
+  useSendSaleRequestMutation,
 } = apiSlice;
