@@ -8,7 +8,6 @@ import RootLayout from './routes/RootLayout';
 import CategoriesPage from './pages/CategoriesPage';
 import SingleProductPage from './pages/SingleProductPage';
 import HomePage from './pages/HomePage';
-import SalesPage from './pages/SalesPage';
 import ProductsByCategoryPage from './pages/ProductsByCategoryPage';
 
 const router = createBrowserRouter([
@@ -30,10 +29,14 @@ const router = createBrowserRouter([
       },
       {
         path: 'sales',
-        element: <SalesPage />,
+        element: <ProductsByCategoryPage />,
       },
       {
         path: 'categories/:categoryId',
+        element: <ProductsByCategoryPage />,
+      },
+      {
+        path: 'products',
         element: <ProductsByCategoryPage />,
       },
     ],

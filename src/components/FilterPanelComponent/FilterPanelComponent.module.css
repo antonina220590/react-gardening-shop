@@ -1,0 +1,39 @@
+.panel {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin: 40px 0;
+}
+
+.filter_group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.filter_group label {
+  font-family: var(--font-main);
+  font-size: clamp(1rem, 0.9rem + 0.37vw, 1.5rem);
+  font-weight: 600;
+  color: var(--color-text);
+  max-width: 100%;
+  text-align: center;
+}
+
+.filter_group input,
+.filter_group select {
+  padding: 8px 12px;
+  border: 1px solid var(--color-grey);
+  border-radius: var(--border-radius-main);
+  font-family: var(--font-main);
+  font-size: 16px;
+}
+
+.filter_group input[type='number'] {
+  width: 100px;
+}
+
+.filter_group input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+}

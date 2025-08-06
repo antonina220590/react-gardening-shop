@@ -5,7 +5,7 @@ export interface Product {
   discont_price: number;
   description: string;
   image: string;
-  createdAt?: string;
+  createdAt: string;
   updatedAt?: string;
   categoryId: string;
 }
