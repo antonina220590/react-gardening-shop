@@ -38,8 +38,8 @@ export default function ProductListPage() {
   const handleDiscountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDiscountOnly(e.target.checked);
   };
-  const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSortOrder(e.target.value);
+  const handleSortChange = (value: string) => {
+    setSortOrder(value);
   };
 
   let title: string = 'Products';

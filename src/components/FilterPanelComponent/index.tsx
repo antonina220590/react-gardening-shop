@@ -1,4 +1,11 @@
+import Select, {
+  type ActionMeta,
+  type MultiValue,
+  type SingleValue,
+} from 'react-select';
+import { customSelectStyles, type SortOptionType } from './SelectStyle';
 import styles from './FilterPanelComponent.module.css';
+import { sortOptions } from '@/data/selectOptions';
 
 type FilterPanelComponentProps = {
   priceRange: { from: string; to: string };
@@ -6,7 +13,7 @@ type FilterPanelComponentProps = {
   discountOnly: boolean;
   onDiscountChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   sortOrder: string;
-  onSortChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  onSortChange: (value: string) => void;
   pathname: string;
 };
 
@@ -19,6 +26,16 @@ export default function FilterPanelComponent({
   onSortChange,
   pathname,
 }: FilterPanelComponentProps) {
+  const handleSelectChange = (
+    newValue: SingleValue<SortOptionType> | MultiValue<SortOptionType>,
+    _actionMeta: ActionMeta<SortOptionType>
+  ) => {
+    if (newValue && !Array.isArray(newValue)) {
+      const singleValue = newValue as SortOptionType;
+      onSortChange(singleValue.value);
+    }
+  };
+
   return (
     <div className={styles.panel}>
       <div className={styles.filter_group}>
@@ -54,12 +71,14 @@ export default function FilterPanelComponent({
       )}
       <div className={styles.filter_group}>
         <label htmlFor="sort_order">Sorted</label>
-        <select id="sort_order" value={sortOrder} onChange={onSortChange}>
-          <option value="default">by default</option>
-          <option value="price_asc">price: low-high</option>
-          <option value="price_desc">price: high-low</option>
-          <option value="newest">newest</option>
-        </select>
+        <Select
+          inputId="sort_order"
+          options={sortOptions}
+          value={sortOptions.find((option) => option.value === sortOrder)}
+          onChange={handleSelectChange}
+          styles={customSelectStyles}
+          classNamePrefix="react-select"
+        />
       </div>
     </div>
   );

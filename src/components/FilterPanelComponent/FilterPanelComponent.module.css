@@ -3,6 +3,7 @@
   align-items: center;
   gap: 40px;
   margin: 40px 0;
+  flex-wrap: wrap;
 }
 
 .filter_group {
@@ -20,20 +21,51 @@
   text-align: center;
 }
 
-.filter_group input,
-.filter_group select {
+.filter_group input[type='number'] {
+  border: 1px solid var(--color-grey-divider);
+  border-radius: var(--border-radius-big);
   padding: 8px 12px;
-  border: 1px solid var(--color-grey);
-  border-radius: var(--border-radius-main);
   font-family: var(--font-main);
   font-size: 16px;
+  font-weight: 500;
+  outline: none;
+  max-width: 116px;
 }
 
-.filter_group input[type='number'] {
-  width: 100px;
+input[type='checkbox'] {
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--color-grey-divider);
+  border-radius: var(--border-radius-big);
+
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
 }
 
-.filter_group input[type='checkbox'] {
-  width: 20px;
-  height: 20px;
+input[type='checkbox']:checked {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+input[type='checkbox']:checked::before {
+  content: '';
+  display: block;
+  position: absolute;
+
+  top: 4px;
+  left: 12px;
+  width: 8px;
+  height: 16px;
+
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
 }
