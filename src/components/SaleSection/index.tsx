@@ -34,6 +34,7 @@ export default function SaleSection() {
             title={product.title}
             price={product.price}
             discount_price={product.discont_price}
+            variant="compact"
           />
         ))}
       </div>

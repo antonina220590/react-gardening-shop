@@ -1,5 +1,16 @@
 .product_btn {
   display: none;
+  transition: 0.3ms ease-in-out;
+}
+
+.product_card:hover {
+  .product_btn {
+    display: block;
+    transition: 0.3ms ease-in-out;
+    position: absolute;
+    bottom: 6.2%;
+    width: 90%;
+  }
 }
 
 .product_card {
@@ -9,6 +20,7 @@
   border: 1px solid var(--color-grey-divider);
   border-radius: var(--border-radius-big);
   max-width: 316px;
+  position: relative;
 }
 
 .product_img {
@@ -85,4 +97,12 @@
   font-size: 20px;
   color: var(--color-grey);
   text-decoration: line-through;
+}
+
+.products_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 32px;
+  margin-top: 35px;
+  justify-items: center;
 }
