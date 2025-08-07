@@ -11,6 +11,7 @@ import ErrorLoadComponent from '../../components/ErrorLoadComponent';
 import styles from './ProductsListComponent.module.css';
 import FilterPanelComponent from '../FilterPanelComponent';
 import { useState } from 'react';
+import SpinnerComponent from '../SpinnerComponent';
 
 export default function ProductListPage() {
   const [priceRange, setPriceRange] = useState({ from: '', to: '' });
@@ -91,7 +92,7 @@ export default function ProductListPage() {
   const isLoading = isCategoryLoading || areAllProductsLoading;
   const isError = isCategoryError || areAllProductsError;
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <SpinnerComponent />;
   if (isError) return <ErrorLoadComponent />;
 
   return (

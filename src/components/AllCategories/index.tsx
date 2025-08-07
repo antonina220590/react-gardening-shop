@@ -3,6 +3,7 @@ import styles from './AllCategories.module.css';
 import ErrorLoadComponent from '../ErrorLoadComponent';
 import { categoriesMap } from '@/data/categories';
 import { Link } from 'react-router-dom';
+import SpinnerComponent from '../SpinnerComponent';
 
 export default function AllCategories() {
   const {
@@ -14,7 +15,7 @@ export default function AllCategories() {
   let content;
 
   if (isLoading) {
-    content = <p>Loading...</p>;
+    content = <SpinnerComponent />;
   } else if (isError) {
     content = <ErrorLoadComponent />;
   } else if (backendCategories) {
