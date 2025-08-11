@@ -29,7 +29,7 @@ export default function Footer() {
           </div>
           <div className={styles.footer_items}>
             <div className={styles.item_container_big}>
-              <p className={styles.item_title}>Socials</p>
+              <p className={styles.item_title}>Address</p>
               <p className={styles.item_content}>
                 Dubininskaya Ulitsa, 96, Moscow, Russia, 115093
               </p>

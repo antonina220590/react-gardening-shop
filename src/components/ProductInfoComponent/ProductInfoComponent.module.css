@@ -15,6 +15,7 @@
   flex: 2;
   display: flex;
   justify-content: center;
+  padding-top: 10px;
 }
 
 .product_image {
@@ -38,7 +39,7 @@
 }
 
 .product_discounted_price {
-  font-size: 40px;
+  font-size: clamp(28px, 1.5rem + 1vw, 40px);
   font-weight: 500;
   color: var(--color-grey);
   text-decoration: line-through;
@@ -91,4 +92,25 @@
 .description_text {
   font-size: 16px;
   font-weight: 400;
+}
+
+@media (max-width: 1320px) {
+  .image_container {
+    flex: 1;
+  }
+}
+
+@media (max-width: 930px) {
+  .product_wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .actions {
+    max-width: 448px;
+  }
 }
