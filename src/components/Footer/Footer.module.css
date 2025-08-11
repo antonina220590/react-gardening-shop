@@ -26,7 +26,7 @@
 .item_content {
   font-family: var(--font-main);
   font-weight: 600;
-  font-size: clamp(24px, 1.15rem + 1.5vw, 40px);
+  font-size: clamp(16px, 0.9rem + 0.9vw, 40px);
   color: var(--color-text);
 }
 
@@ -66,5 +66,14 @@
 
   .items {
     flex-wrap: wrap;
+  }
+
+  .footer_icons img {
+    width: 33px;
+    height: 33px;
+  }
+
+  .footer_items {
+    flex-direction: column;
   }
 }
