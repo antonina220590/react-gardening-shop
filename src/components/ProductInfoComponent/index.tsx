@@ -4,6 +4,8 @@ import { useGetProductByIdQuery } from '../../store/api/apiSlice';
 import QuantityCounterComponent from '../CounterComponent';
 import { useState } from 'react';
 import ButtonCard from '../ui/ButtonCard';
+import ErrorLoadComponent from '../ErrorLoadComponent';
+import SpinnerComponent from '../SpinnerComponent';
 export default function ProductInfoComponent() {
   const { productId } = useParams();
   const [quantity, setQuantity] = useState(1);
@@ -15,13 +17,13 @@ export default function ProductInfoComponent() {
   } = useGetProductByIdQuery(productId!);
 
   if (isProductLoading) {
-    return <p>Loading product...</p>;
+    return <SpinnerComponent />;
   }
 
   const product = productData?.[0];
 
   if (isProductError || !product) {
-    return <p>Error: Could not load product.</p>;
+    return <ErrorLoadComponent />;
   }
 
   const baseUrl = 'http://localhost:3333';
