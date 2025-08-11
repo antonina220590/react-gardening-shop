@@ -88,6 +88,10 @@ export default function ProductInfoComponent() {
               />
               <ButtonCard text={'Add to card'} onClick={handleAddToCart} />
             </div>
+            <div className={styles.description_container}>
+              <h2 className={styles.description_title}>Description</h2>
+              <p className={styles.description_text}>{product.description}</p>
+            </div>
           </div>
         </div>
       </div>

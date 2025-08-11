@@ -1,5 +1,4 @@
 .quantity_selector {
-  /* max-width: 200px; */
   display: flex;
   border-top: 1px solid var(--color-grey-divider);
   border-bottom: 1px solid var(--color-grey-divider);
