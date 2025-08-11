@@ -18,7 +18,7 @@ export const apiSlice = createApi({
     getAllProducts: builder.query<Product[], void>({
       query: () => '/products/all',
     }),
-    getProductById: builder.query<Product, string>({
+    getProductById: builder.query<Product[], string>({
       query: (id) => `/products/${id}`,
     }),
     sendSaleRequest: builder.mutation<

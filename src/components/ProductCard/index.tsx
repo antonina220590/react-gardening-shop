@@ -43,12 +43,14 @@ export default function ProductCard({
         <div className={styles.product_info}>
           <p className={styles.product_title}>{title}</p>
           <div className={styles.price_container}>
-            <p className={styles.product_price}>${price}</p>
             {discount_price && (
-              <p className={styles.product_discounted_price}>
-                ${discount_price}
-              </p>
+              <p className={styles.product_price}>${discount_price}</p>
             )}
+            <p
+              className={`${discount_price ? styles.product_discounted_price : styles.product_price}`}
+            >
+              ${price}
+            </p>
           </div>
         </div>
       </Link>
