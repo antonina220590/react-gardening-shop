@@ -57,7 +57,10 @@ export default function Header() {
             ))}
           </nav>
           <div className={styles.right_icons}>
-            <img className={styles.header_basket} src={icon} alt="basket" />
+            <Link to="/cart">
+              <img className={styles.header_basket} src={icon} alt="basket" />
+            </Link>
+
             <button
               className={`${styles.burger_btn} ${isMenuOpen ? styles.active : ''}`}
               onClick={toggleMenu}

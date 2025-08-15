@@ -9,6 +9,7 @@ import CategoriesPage from './pages/CategoriesPage';
 import SingleProductPage from './pages/SingleProductPage';
 import HomePage from './pages/HomePage';
 import ProductsByCategoryPage from './pages/ProductsByCategoryPage';
+import CartPage from './pages/CartPage';
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: 'products',
         element: <ProductsByCategoryPage />,
+      },
+      {
+        path: 'cart',
+        element: <CartPage />,
       },
     ],
   },
