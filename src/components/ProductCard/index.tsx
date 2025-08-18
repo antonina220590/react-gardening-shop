@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
-import ButtonCard from '../ui/ButtonCard';
 import styles from './ProductCard.module.css';
+import AddToCartButton from '../ui/AddToCartBtn';
+import type { Product } from '@/types/data';
 type ProductCardProps = {
   id: number;
   image: string;
@@ -16,7 +17,6 @@ export default function ProductCard({
   title,
   price,
   discount_price,
-  variant = 'default',
 }: ProductCardProps) {
   const baseUrl = 'http://localhost:3333';
   const imageUrl = `${baseUrl}${image}`;
@@ -25,6 +25,18 @@ export default function ProductCard({
     discount_percent = Math.round(((price - discount_price) / price) * 100);
   }
 
+  const product: Product = {
+    id: id,
+    image,
+    title,
+    price,
+    discont_price: discount_price ?? 0,
+    description: '',
+    createdAt: '',
+    updatedAt: '',
+    categoryId: '0',
+  };
+
   return (
     <div key={id} className={styles.product_card}>
       <div className={styles.product_img}>
@@ -32,11 +44,10 @@ export default function ProductCard({
           <div className={styles.discount_badge}>-{discount_percent}%</div>
         )}
 
-        {variant === 'default' && (
-          <div className={styles.product_btn}>
-            <ButtonCard text={'Add to card'} />
-          </div>
-        )}
+        <div className={styles.product_btn}>
+          <AddToCartButton product={product} quantity={1} />
+        </div>
+
         <img src={imageUrl} alt={title}></img>
       </div>
       <Link to={`/products/${id}`}>

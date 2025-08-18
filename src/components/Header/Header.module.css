@@ -107,6 +107,27 @@
   transform: translateY(-8px) rotate(-45deg);
 }
 
+.header_basket_container {
+  position: relative;
+}
+
+.header_productCount {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  border-radius: 100%;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 7px;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (max-width: 850px) {
   .navigation {
     display: none;

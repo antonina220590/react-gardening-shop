@@ -11,15 +11,20 @@
   font-weight: 600;
 }
 
-.button_card-added {
+.button_card:hover {
+  background-color: var(--color-text);
+}
+
+.button_cardAdded {
   background-color: var(--color-white);
   color: var(--color-text);
   border: 1px solid var(--color-text);
   cursor: unset;
 }
 
-.button_card:hover {
-  background-color: var(--color-text);
+.button_cardAdded:hover {
+  background-color: var(--color-white);
+  color: var(--color-text);
 }
 
 @media (max-width: 850px) {

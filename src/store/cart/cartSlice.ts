@@ -17,35 +17,39 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addItem: (state, action: PayloadAction<Product>) => {
-      const productToAdd = action.payload;
-      const existingItem = state.items.find(
-        (item) => item.id === productToAdd.id
-      );
-      if (!existingItem) {
-        state.items.push({ ...productToAdd, quantity: 1 });
+    addItem: (
+      state,
+      action: PayloadAction<{ product: Product; quantity: number }>
+    ) => {
+      const { product, quantity } = action.payload;
+      const existingItem = state.items.find((item) => item.id === product.id);
+
+      if (existingItem) {
+        existingItem.quantity += quantity;
+      } else {
+        state.items.push({ ...product, quantity });
       }
     },
 
-    incrementItem: (state, action: PayloadAction<string>) => {
-      const item = state.items.find((item) => item.id === action.payload);
+    incrementItem: (state, action: PayloadAction<number>) => {
+      const item = state.items.find(
+        (item) => item.id === Number(action.payload)
+      );
       if (item) {
         item.quantity++;
       }
     },
 
-    decrementItem: (state, action: PayloadAction<string>) => {
-      const item = state.items.find((item) => item.id === action.payload);
-      if (item) {
-        if (item.quantity > 1) {
-          item.quantity--;
-        } else {
-          state.items = state.items.filter((i) => i.id !== action.payload);
-        }
+    decrementItem: (state, action: PayloadAction<number>) => {
+      const item = state.items.find(
+        (item) => item.id === Number(action.payload)
+      );
+      if (item && item.quantity > 1) {
+        item.quantity--;
       }
     },
-    removeItem: (state, action: PayloadAction<string>) => {
-      const idToRemove = action.payload;
+    removeItem: (state, action: PayloadAction<number>) => {
+      const idToRemove = Number(action.payload);
       state.items = state.items.filter((item) => item.id !== idToRemove);
     },
   },

@@ -15,7 +15,11 @@ export default function QuantityCounterComponent({
 }: QuantityComponentProps) {
   return (
     <div className={styles.quantity_selector}>
-      <button className={styles.quantity_btn} onClick={onDecrement}>
+      <button
+        className={styles.quantity_btn}
+        onClick={onDecrement}
+        disabled={quantity <= 1}
+      >
         <MinusIcon className={styles.icon} />
       </button>
       <span className={styles.quantity}>{quantity}</span>
