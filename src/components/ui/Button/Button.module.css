@@ -1,4 +1,4 @@
-/* .button_card {
+.button {
   background-color: var(--color-primary);
   color: var(--color-white);
   padding: 16px 32px;
@@ -11,25 +11,33 @@
   font-weight: 600;
 }
 
-.button_card:hover {
+.primary {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.primary:hover {
   background-color: var(--color-text);
 }
 
-.button_cardAdded {
+.secondary {
   background-color: var(--color-white);
   color: var(--color-text);
   border: 1px solid var(--color-text);
-  cursor: unset;
+  cursor: not-allowed;
 }
 
-.button_cardAdded:hover {
+.success {
   background-color: var(--color-white);
   color: var(--color-text);
+  border: 1px solid var(--color-text);
+  cursor: not-allowed;
 }
 
 @media (max-width: 850px) {
-  .button_card {
+  .button {
     padding: 12px 42px;
     font-size: 15px;
   }
-} */
+}

@@ -41,20 +41,20 @@ export default function ShoppingCartComponent({
           />
           <div className={styles.prices_container}>
             {product.discont_price > 0 && (
-              // <p className={styles.product_discont_price}>
-              //   ${quantity > 1 ? product.price * quantity : product.price}
-              // </p>
               <p className={styles.product_price}>
                 $
                 {quantity > 1
-                  ? product.discont_price * quantity
-                  : product.discont_price}
+                  ? (product.discont_price * quantity).toFixed(2)
+                  : product.discont_price.toFixed(2)}
               </p>
             )}
             <p
               className={`${product.discont_price ? styles.product_discont_price : styles.product_price}`}
             >
-              ${quantity > 1 ? product.price * quantity : product.price}
+              $
+              {quantity > 1
+                ? (product.price * quantity).toFixed(2)
+                : product.price.toFixed(2)}
             </p>
           </div>
         </div>

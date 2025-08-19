@@ -42,3 +42,43 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.empty_basket_container {
+  display: flex;
+  margin-top: 40px;
+  flex-direction: column;
+}
+
+.btn_container {
+  max-width: 313px;
+}
+
+.empty_basket_text {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.link {
+  max-width: 313px;
+}
+
+.modal_container {
+  display: flex;
+  flex-direction: column;
+  width: 88%;
+}
+
+.modal_title {
+  font-size: 40px;
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: 22px;
+}
+
+.modal_message {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: 12px;
+}

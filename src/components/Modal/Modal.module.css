@@ -1,0 +1,39 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.content {
+  background: var(--color-primary);
+  padding: 32px;
+  border-radius: var(--border-radius-big);
+  position: relative;
+  text-align: left;
+  width: 90%;
+  max-width: 548px;
+  min-height: 236px;
+}
+
+.close_btn {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.close_icon {
+  stroke: var(--color-white);
+  width: 44px;
+  height: 44px;
+}

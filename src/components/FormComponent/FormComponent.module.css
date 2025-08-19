@@ -47,3 +47,7 @@
 .form input:focus {
   outline: none;
 }
+
+.form_btn {
+  margin-top: 32px;
+}

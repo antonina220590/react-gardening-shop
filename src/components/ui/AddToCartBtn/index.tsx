@@ -1,7 +1,7 @@
 import { useAppSelector, useAppDispatch } from '../../../store/hooks';
 import { addItem } from '../../../store/cart/cartSlice';
 import { type Product } from '@/types/data';
-import styles from './AddToCartButton.module.css';
+import Button from '../Button';
 
 type AddToCartButtonProps = {
   product: Product;
@@ -25,16 +25,14 @@ export default function AddToCartButton({
   };
 
   const isAdded = !!itemInCart;
-  const buttonClasses = `${styles.button_card} ${isAdded ? styles.button_cardAdded : ''}`;
-  const buttonText = isAdded ? 'Added' : 'Add to cart';
 
   return (
-    <button
+    <Button
       onClick={handleAddToCart}
-      className={buttonClasses}
       disabled={isAdded}
+      variant={isAdded ? 'secondary' : 'primary'}
     >
-      {buttonText}
-    </button>
+      {isAdded ? 'Added' : 'Add to cart'}
+    </Button>
   );
 }
