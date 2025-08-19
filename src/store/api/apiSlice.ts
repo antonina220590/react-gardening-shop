@@ -4,6 +4,7 @@ import type {
   Category,
   ProductsByCategoryResponse,
 } from '@/types/data';
+import type { CartItem } from '../cart/cartSlice';
 
 export const apiSlice = createApi({
   reducerPath: 'api',
@@ -31,6 +32,16 @@ export const apiSlice = createApi({
         body,
       }),
     }),
+    sendOrderRequest: builder.mutation<
+      void,
+      { user: { name: string; phone: string; email: string }; cart: CartItem[] }
+    >({
+      query: (body) => ({
+        url: '/order/send',
+        method: 'POST',
+        body,
+      }),
+    }),
   }),
 });
 
@@ -40,4 +51,5 @@ export const {
   useGetAllProductsQuery,
   useGetProductByIdQuery,
   useSendSaleRequestMutation,
+  useSendOrderRequestMutation,
 } = apiSlice;

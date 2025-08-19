@@ -22,21 +22,43 @@ export default function ShoppingCartComponent({
   const imageUrl = `${baseUrl}${product.image}`;
 
   return (
-    <div>
-      <img src={imageUrl}></img>
-      <div>
-        <p>{product.title}</p>
-        <button onClick={onDelete}>
-          <CloseIcon className={styles.icon} />
-        </button>
+    <div className={styles.product_container}>
+      <div className={styles.product_img_container}>
+        <img src={imageUrl} className={styles.product_img}></img>
       </div>
-      <p>{product.price}</p>
-      {product.discont_price > 0 && <p>${product.discont_price}</p>}
-      <QuantityCounterComponent
-        quantity={quantity}
-        onIncrement={onIncrement}
-        onDecrement={onDecrement}
-      />
+      <div className={styles.product_data}>
+        <div className={styles.product_title_container}>
+          <p className={styles.product_title}>{product.title}</p>
+          <button onClick={onDelete} className={styles.delete_button}>
+            <CloseIcon className={styles.icon} />
+          </button>
+        </div>
+        <div className={styles.product_price_container}>
+          <QuantityCounterComponent
+            quantity={quantity}
+            onIncrement={onIncrement}
+            onDecrement={onDecrement}
+          />
+          <div className={styles.prices_container}>
+            {product.discont_price > 0 && (
+              // <p className={styles.product_discont_price}>
+              //   ${quantity > 1 ? product.price * quantity : product.price}
+              // </p>
+              <p className={styles.product_price}>
+                $
+                {quantity > 1
+                  ? product.discont_price * quantity
+                  : product.discont_price}
+              </p>
+            )}
+            <p
+              className={`${product.discont_price ? styles.product_discont_price : styles.product_price}`}
+            >
+              ${quantity > 1 ? product.price * quantity : product.price}
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

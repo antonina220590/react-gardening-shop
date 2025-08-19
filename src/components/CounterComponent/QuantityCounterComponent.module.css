@@ -1,9 +1,9 @@
 .quantity_selector {
   display: flex;
+  align-self: flex-start;
   border-top: 1px solid var(--color-grey-divider);
   border-bottom: 1px solid var(--color-grey-divider);
   border-radius: var(--border-radius-main);
-  max-width: 548px;
 }
 
 .quantity_btn {
