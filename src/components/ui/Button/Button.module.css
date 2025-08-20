@@ -1,4 +1,4 @@
-.button_card {
+.button {
   background-color: var(--color-primary);
   color: var(--color-white);
   padding: 16px 32px;
@@ -9,22 +9,34 @@
   width: 100%;
   font-size: clamp(14px, 0.9rem + 0.4vw, 20px);
   font-weight: 600;
-  margin-top: 32px;
 }
 
-.button_card-added {
-  background-color: var(--color-white);
-  color: var(--color-text);
-  border: 1px solid var(--color-text);
-  cursor: unset;
+.primary {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-white);
 }
 
-.button_card:hover {
+.primary:hover {
   background-color: var(--color-text);
 }
 
+.secondary {
+  background-color: var(--color-white);
+  color: var(--color-text);
+  border: 1px solid var(--color-text);
+  cursor: not-allowed;
+}
+
+.success {
+  background-color: var(--color-white);
+  color: var(--color-text);
+  border: 1px solid var(--color-text);
+  cursor: not-allowed;
+}
+
 @media (max-width: 850px) {
-  .button_card {
+  .button {
     padding: 12px 42px;
     font-size: 15px;
   }

@@ -61,7 +61,9 @@ export default function FormComponent<T extends FieldValues>({
           />
         </div>
       ))}
-      {renderButton({ isLoading, isSuccess })}
+      <div className={styles.form_btn}>
+        {renderButton({ isLoading, isSuccess })}
+      </div>
     </form>
   );
 }

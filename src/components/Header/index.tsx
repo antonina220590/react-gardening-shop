@@ -5,6 +5,7 @@ import icon from '../../assets/icon.svg';
 import styles from './Header.module.css';
 import { useEffect, useState } from 'react';
 import MobileMenu from '../MobileMenu';
+import { useAppSelector } from '../../store/hooks';
 
 const navLinks = [
   { path: '/', title: 'Main Page', end: true },
@@ -15,6 +16,10 @@ const navLinks = [
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const totalCount = useAppSelector((state) =>
+    state.cart.items.reduce((sum, item) => sum + item.quantity, 0)
+  );
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -57,7 +62,17 @@ export default function Header() {
             ))}
           </nav>
           <div className={styles.right_icons}>
-            <img className={styles.header_basket} src={icon} alt="basket" />
+            <Link to="/cart">
+              <div className={styles.header_basket_container}>
+                <img className={styles.header_basket} src={icon} alt="basket" />
+                {totalCount > 0 && (
+                  <span className={styles.header_productCount}>
+                    {totalCount}
+                  </span>
+                )}
+              </div>
+            </Link>
+
             <button
               className={`${styles.burger_btn} ${isMenuOpen ? styles.active : ''}`}
               onClick={toggleMenu}

@@ -2,12 +2,15 @@ import styles from './ProductInfoComponent.module.css';
 import { useParams } from 'react-router-dom';
 import { useGetProductByIdQuery } from '../../store/api/apiSlice';
 import QuantityCounterComponent from '../CounterComponent';
-import { useState } from 'react';
-import ButtonCard from '../ui/ButtonCard';
 import ErrorLoadComponent from '../ErrorLoadComponent';
 import SpinnerComponent from '../SpinnerComponent';
+import AddToCartButton from '../ui/AddToCartBtn';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { decrementItem, incrementItem } from '@/store/cart/cartSlice';
+import { useEffect, useState } from 'react';
 export default function ProductInfoComponent() {
   const { productId } = useParams();
+  const dispatch = useAppDispatch();
   const [quantity, setQuantity] = useState(1);
 
   const {
@@ -16,11 +19,22 @@ export default function ProductInfoComponent() {
     isError: isProductError,
   } = useGetProductByIdQuery(productId!);
 
+  const product = productData?.[0];
+  const cartItem = useAppSelector((state) =>
+    state.cart.items.find((item) => item.id === product?.id)
+  );
+
+  useEffect(() => {
+    if (cartItem) {
+      setQuantity(cartItem.quantity);
+    } else {
+      setQuantity(1);
+    }
+  }, [cartItem]);
+
   if (isProductLoading) {
     return <SpinnerComponent />;
   }
-
-  const product = productData?.[0];
 
   if (isProductError || !product) {
     return <ErrorLoadComponent />;
@@ -36,18 +50,20 @@ export default function ProductInfoComponent() {
     );
   }
 
-  const handleDecrement = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
+  const handleIncrement = () => {
+    if (cartItem) {
+      dispatch(incrementItem(product.id));
+    } else {
+      setQuantity((prev) => prev + 1);
     }
   };
 
-  const handleIncrement = () => {
-    setQuantity(quantity + 1);
-  };
-
-  const handleAddToCart = () => {
-    console.log(`Added ${quantity} of ${product.title} to cart`);
+  const handleDecrement = () => {
+    if (cartItem) {
+      dispatch(decrementItem(product.id));
+    } else {
+      setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
+    }
   };
 
   return (
@@ -85,10 +101,10 @@ export default function ProductInfoComponent() {
             <div className={styles.actions}>
               <QuantityCounterComponent
                 quantity={quantity}
-                onDecrement={handleDecrement}
                 onIncrement={handleIncrement}
+                onDecrement={handleDecrement}
               />
-              <ButtonCard text={'Add to card'} onClick={handleAddToCart} />
+              <AddToCartButton product={product} quantity={quantity} />
             </div>
             <div className={styles.description_container}>
               <h2 className={styles.description_title}>Description</h2>
