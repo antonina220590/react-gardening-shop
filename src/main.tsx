@@ -10,6 +10,7 @@ import SingleProductPage from './pages/SingleProductPage';
 import HomePage from './pages/HomePage';
 import ProductsByCategoryPage from './pages/ProductsByCategoryPage';
 import CartPage from './pages/CartPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: 'cart',
         element: <CartPage />,
+      },
+      {
+        path: '*',
+        element: <NotFoundPage />,
       },
     ],
   },
