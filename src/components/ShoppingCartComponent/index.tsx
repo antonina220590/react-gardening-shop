@@ -76,7 +76,6 @@ export default function ShoppingCartComponent() {
     try {
       await sendOrder(orderData).unwrap();
       setIsModalOpen(true);
-      // dispatch(clearCart());
       event?.target.reset();
       console.log('Order submitted');
     } catch (error) {
