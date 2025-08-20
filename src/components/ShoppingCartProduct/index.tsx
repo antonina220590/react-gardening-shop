@@ -2,6 +2,7 @@ import type { Product } from '@/types/data';
 import QuantityCounterComponent from '../CounterComponent';
 import styles from './ShoppingCartProduct.module.css';
 import CloseIcon from '../ui/CloseIcon';
+import { Link } from 'react-router-dom';
 
 type ShoppingCartComponentProps = {
   product: Product;
@@ -9,6 +10,7 @@ type ShoppingCartComponentProps = {
   onDecrement: () => void;
   onDelete: () => void;
   quantity: number;
+  id: number;
 };
 
 export default function ShoppingCartComponent({
@@ -17,6 +19,7 @@ export default function ShoppingCartComponent({
   onIncrement,
   onDelete,
   quantity,
+  id,
 }: ShoppingCartComponentProps) {
   const baseUrl = 'http://localhost:3333';
   const imageUrl = `${baseUrl}${product.image}`;
@@ -24,8 +27,11 @@ export default function ShoppingCartComponent({
   return (
     <div className={styles.product_container}>
       <div className={styles.product_img_container}>
-        <img src={imageUrl} className={styles.product_img}></img>
+        <Link to={`/products/${id}`}>
+          <img src={imageUrl} className={styles.product_img}></img>
+        </Link>
       </div>
+
       <div className={styles.product_data}>
         <div className={styles.product_title_container}>
           <p className={styles.product_title}>{product.title}</p>

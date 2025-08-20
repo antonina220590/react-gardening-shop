@@ -34,7 +34,7 @@
 }
 
 .order_price {
-  font-size: clamp(32px, 1.5rem + 1vw, 64px);
+  font-size: clamp(32px, 1.3rem + 3vw, 64px);
   font-weight: 700;
   color: var(--color-text);
 }

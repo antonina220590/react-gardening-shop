@@ -152,4 +152,11 @@
   .header {
     padding: 19px 0 12px 0;
   }
+
+  .header_productCount {
+    width: 16px;
+    height: 16px;
+    font-size: 8px;
+    top: 3px;
+  }
 }

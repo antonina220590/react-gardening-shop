@@ -109,6 +109,7 @@ export default function ShoppingCartComponent() {
                     onIncrement={() => dispatch(incrementItem(item.id))}
                     onDecrement={() => dispatch(decrementItem(item.id))}
                     onDelete={() => dispatch(removeItem(item.id))}
+                    id={item.id}
                   />
                 ))}
               </div>
