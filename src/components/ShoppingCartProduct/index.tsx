@@ -21,8 +21,7 @@ export default function ShoppingCartComponent({
   quantity,
   id,
 }: ShoppingCartComponentProps) {
-  const baseUrl = 'http://localhost:3333';
-  const imageUrl = `${baseUrl}${product.image}`;
+  const imageUrl = product.image;
 
   return (
     <div className={styles.product_container}>

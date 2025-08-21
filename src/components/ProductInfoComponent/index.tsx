@@ -40,8 +40,7 @@ export default function ProductInfoComponent() {
     return <ErrorLoadComponent />;
   }
 
-  const baseUrl = 'http://localhost:3333';
-  const imageUrl = `${baseUrl}${product?.image}`;
+  const imageUrl = product?.image;
 
   let discount_percent = 0;
   if (product.discont_price) {
