@@ -8,42 +8,20 @@ import {
   incrementItem,
   removeItem,
 } from '@/store/cart/cartSlice';
-import FormComponent, { type FormInput } from '../FormComponent';
+import FormComponent from '../FormComponent';
 import ButtonCard from '../ui/ButtonCard';
 import CategoryHeader from '../CategoryHeader';
 import { useSendOrderRequestMutation } from '@/store/api/apiSlice';
 import { toast } from 'react-toastify';
-import type { SubmitHandler } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import Button from '../ui/Button';
 import Modal from '../Modal';
-
-type SaleFormInputs = {
-  name: string;
-  phone: string;
-  email: string;
-};
-
-const saleFormInputs: FormInput<SaleFormInputs>[] = [
-  {
-    name: 'name',
-    type: 'text',
-    placeholder: 'Name',
-    validation: { required: 'Name is required' },
-  },
-  {
-    name: 'phone',
-    type: 'tel',
-    placeholder: 'Phone number',
-    validation: { required: 'Phone is required' },
-  },
-  {
-    name: 'email',
-    type: 'email',
-    placeholder: 'Email',
-    validation: { required: 'Email is required' },
-  },
-];
+import type { SubmitHandler } from 'react-hook-form';
+import {
+  schema,
+  saleFormInputs,
+  type SaleFormValues,
+} from '../../schema/validation';
 
 export default function ShoppingCartComponent() {
   const cartItems = useAppSelector((state) => state.cart.items);
@@ -64,7 +42,7 @@ export default function ShoppingCartComponent() {
     return { totalCount: count, totalAmount: amount };
   }, [cartItems]);
 
-  const handleFormSubmit: SubmitHandler<SaleFormInputs> = async (
+  const handleFormSubmit: SubmitHandler<SaleFormValues> = async (
     data,
     event
   ) => {
@@ -122,10 +100,11 @@ export default function ShoppingCartComponent() {
                     ${totalAmount.toFixed(2)}
                   </span>
                 </div>
-                <FormComponent
+                <FormComponent<typeof schema>
                   theme="light"
                   inputs={saleFormInputs}
                   onSubmit={handleFormSubmit}
+                  validationSchema={schema}
                   renderButton={() => (
                     <Button
                       type="submit"
