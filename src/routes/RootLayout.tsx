@@ -4,15 +4,19 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import styles from './RootLayout.module.css';
 import Footer from '@/components/Footer';
+import ErrorBoundary from '@/components/ErrorBoundary';
 
 function RootLayout() {
   return (
     <div className={styles.layout}>
       <Header />
       <main className={styles.main}>
-        <Outlet />
+        <ErrorBoundary>
+          <Outlet />
+        </ErrorBoundary>
       </main>
       <Footer />
+
       <ToastContainer
         position="bottom-right"
         autoClose={5000}
