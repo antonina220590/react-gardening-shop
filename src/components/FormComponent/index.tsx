@@ -1,3 +1,5 @@
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 import {
   useForm,
   type SubmitHandler,
@@ -10,36 +12,41 @@ export type FormInput<T extends FieldValues> = {
   name: Path<T>;
   type: string;
   placeholder: string;
-  validation?: object;
 };
 
-type FormComponentProps<T extends FieldValues> = {
-  inputs: FormInput<T>[];
+type FormComponentProps<TSchema extends yup.AnyObjectSchema> = {
+  inputs: FormInput<yup.InferType<TSchema>>[];
   submitText?: string;
-  onSubmit: SubmitHandler<T>;
+  onSubmit: SubmitHandler<yup.InferType<TSchema>>;
   isLoading?: boolean;
   isSuccess?: boolean;
   successText?: string;
   theme?: 'light' | 'dark';
+  validationSchema: TSchema;
   renderButton: (props: {
     isLoading?: boolean;
     isSuccess?: boolean;
   }) => React.ReactNode;
 };
 
-export default function FormComponent<T extends FieldValues>({
+export default function FormComponent<TSchema extends yup.AnyObjectSchema>({
   inputs,
   onSubmit,
   isLoading,
   isSuccess,
   theme = 'dark',
   renderButton,
-}: FormComponentProps<T>) {
+  validationSchema,
+}: FormComponentProps<TSchema>) {
+  type FormValues = yup.InferType<TSchema>;
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<T>();
+  } = useForm<FormValues>({
+    resolver: yupResolver(validationSchema),
+    mode: 'onChange',
+  });
   const formClasses = `${styles.form} ${theme === 'light' ? styles.light : ''}`;
 
   return (
@@ -57,7 +64,7 @@ export default function FormComponent<T extends FieldValues>({
             className={styles.form_input}
             type={input.type}
             placeholder={input.placeholder}
-            {...register(input.name, input.validation)}
+            {...register(input.name)}
           />
         </div>
       ))}

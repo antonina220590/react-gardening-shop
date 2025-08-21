@@ -1,0 +1,20 @@
+.boundary_container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
+  align-items: center;
+  gap: 32px;
+}
+
+.boundary_title {
+  font-size: clamp(32px, 1.3rem + 3vw, 64px);
+  color: var(--color-primary);
+  text-align: center;
+}
+
+.boundary_message {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--color-grey);
+  text-align: center;
+}

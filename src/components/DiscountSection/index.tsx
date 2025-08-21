@@ -1,43 +1,20 @@
 import styles from './DiscountSection.module.css';
 import image from '../../assets/discount.png';
-import FormComponent, { type FormInput } from '../FormComponent';
+import FormComponent from '../FormComponent';
 import { useSendSaleRequestMutation } from '../../store/api/apiSlice';
 import type { SubmitHandler } from 'react-hook-form';
 import ButtonBanner from '../ui/ButtonBanner';
 import { toast } from 'react-toastify';
-
-type SaleFormInputs = {
-  name: string;
-  phone: string;
-  email: string;
-};
-
-const saleFormInputs: FormInput<SaleFormInputs>[] = [
-  {
-    name: 'name',
-    type: 'text',
-    placeholder: 'Name',
-    validation: { required: 'Name is required' },
-  },
-  {
-    name: 'phone',
-    type: 'tel',
-    placeholder: 'Phone number',
-    validation: { required: 'Phone is required' },
-  },
-  {
-    name: 'email',
-    type: 'email',
-    placeholder: 'Email',
-    validation: { required: 'Email is required' },
-  },
-];
-
+import {
+  schema,
+  saleFormInputs,
+  type SaleFormValues,
+} from '../../schema/validation';
 export default function DiscountSection() {
   const [sendSaleRequest, { isLoading, isSuccess }] =
     useSendSaleRequestMutation();
 
-  const handleSaleSubmit: SubmitHandler<SaleFormInputs> = async (
+  const handleSaleSubmit: SubmitHandler<SaleFormValues> = async (
     data,
     event
   ) => {
@@ -64,11 +41,12 @@ export default function DiscountSection() {
               alt="discount section image"
             ></img>
             <div className={styles.discount_form}>
-              <FormComponent<SaleFormInputs>
+              <FormComponent<typeof schema>
                 inputs={saleFormInputs}
                 onSubmit={handleSaleSubmit}
                 isLoading={isLoading}
                 isSuccess={isSuccess}
+                validationSchema={schema}
                 renderButton={({ isLoading, isSuccess }) => (
                   <ButtonBanner
                     text="Get a discount"

@@ -1,15 +1,21 @@
 .product_btn {
-  display: none;
-  transition: 0.3ms ease-in-out;
+  opacity: 1;
+  visibility: visible;
+  position: absolute;
+  bottom: 6.2%;
+  width: 90%;
+  transition: opacity 0.3s ease-in-out;
 }
 
-.product_card:hover {
+@media (hover: hover) {
   .product_btn {
-    display: block;
-    transition: 0.3ms ease-in-out;
-    position: absolute;
-    bottom: 6.2%;
-    width: 90%;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .product_card:hover .product_btn {
+    opacity: 1;
+    visibility: visible;
   }
 }
 
