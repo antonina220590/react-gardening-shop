@@ -8,7 +8,7 @@ import type { CartItem } from '../cart/cartSlice';
 
 export const apiSlice = createApi({
   reducerPath: 'api',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3333' }),
+  baseQuery: fetchBaseQuery({ baseUrl: '' }),
   endpoints: (builder) => ({
     getAllCategories: builder.query<Category[], void>({
       query: () => '/categories/all',
