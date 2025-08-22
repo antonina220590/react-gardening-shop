@@ -33,7 +33,9 @@ export default function ProductCard({
     updatedAt: '',
     categoryId: '0',
   };
-  const imageUrl = product.image;
+
+  const baseUrl = import.meta.env.VITE_API_BASE_URL || '';
+  const imageUrl = `${baseUrl}${product.image}`;
 
   return (
     <div key={id} className={styles.product_card}>
