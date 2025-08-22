@@ -21,7 +21,7 @@ export default function ShoppingCartComponent({
   quantity,
   id,
 }: ShoppingCartComponentProps) {
-  const baseUrl = 'http://localhost:3333';
+  const baseUrl = import.meta.env.VITE_API_BASE_URL || '';
   const imageUrl = `${baseUrl}${product.image}`;
 
   return (

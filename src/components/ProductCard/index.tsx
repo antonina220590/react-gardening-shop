@@ -18,13 +18,10 @@ export default function ProductCard({
   price,
   discount_price,
 }: ProductCardProps) {
-  const baseUrl = 'http://localhost:3333';
-  const imageUrl = `${baseUrl}${image}`;
   let discount_percent = 0;
   if (discount_price) {
     discount_percent = Math.round(((price - discount_price) / price) * 100);
   }
-
   const product: Product = {
     id: id,
     image,
@@ -36,6 +33,9 @@ export default function ProductCard({
     updatedAt: '',
     categoryId: '0',
   };
+
+  const baseUrl = import.meta.env.VITE_API_BASE_URL || '';
+  const imageUrl = `${baseUrl}${product.image}`;
 
   return (
     <div key={id} className={styles.product_card}>
