@@ -1,11 +1,12 @@
-import Select, {
+import {
   type ActionMeta,
   type MultiValue,
   type SingleValue,
 } from 'react-select';
-import { customSelectStyles, type SortOptionType } from './SelectStyle';
+import StyledSelect from '../ui/Select';
 import styles from './FilterPanel.module.css';
 import { sortOptions } from '@/data/selectOptions';
+import type { SortOptionType } from '../ui/Select/SelectStyle';
 
 type FilterPanelProps = {
   priceRange: { from: string; to: string };
@@ -71,13 +72,11 @@ export default function FilterPanel({
       )}
       <div className={styles.filter_group}>
         <label htmlFor="sort_order">Sorted</label>
-        <Select
+        <StyledSelect
           inputId="sort_order"
           options={sortOptions}
           value={sortOptions.find((option) => option.value === sortOrder)}
           onChange={handleSelectChange}
-          styles={customSelectStyles}
-          classNamePrefix="react-select"
         />
       </div>
     </div>
