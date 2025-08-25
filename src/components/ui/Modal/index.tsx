@@ -1,5 +1,5 @@
 import styles from './Modal.module.css';
-import CloseIcon from '../ui/CloseIcon';
+import CloseIcon from '../icons/CloseIcon';
 
 type ModalProps = {
   isOpen: boolean;

@@ -1,6 +1,6 @@
-import styles from './ErrorLoadComponent.module.css';
+import styles from './ErrorLoad.module.css';
 
-export default function ErrorLoadComponent() {
+export default function ErrorMessaget() {
   return (
     <div className="container">
       <div className={styles.error_container}>

@@ -1,21 +1,21 @@
 import { useMemo, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import ShoppingCartProduct from '../ShoppingCartProduct';
-import styles from './ShoppingCartComponent.module.css';
+import styles from './ShoppingCart.module.css';
 import {
   clearCart,
   decrementItem,
   incrementItem,
   removeItem,
 } from '@/store/cart/cartSlice';
-import FormComponent from '../FormComponent';
+import FormComponent from '../ui/Form';
 import ButtonCard from '../ui/ButtonCard';
-import CategoryHeader from '../CategoryHeader';
+import CategoryHeader from '../ui/CategoryHeader';
 import { useSendOrderRequestMutation } from '@/store/api/apiSlice';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import Button from '../ui/Button';
-import Modal from '../Modal';
+import Modal from '../ui/Modal';
 import type { SubmitHandler } from 'react-hook-form';
 import {
   schema,
@@ -23,7 +23,7 @@ import {
   type SaleFormValues,
 } from '../../schema/validation';
 
-export default function ShoppingCartComponent() {
+export default function ShoppingCart() {
   const cartItems = useAppSelector((state) => state.cart.items);
   const dispatch = useAppDispatch();
   const [sendOrder, { isLoading, isSuccess }] = useSendOrderRequestMutation();

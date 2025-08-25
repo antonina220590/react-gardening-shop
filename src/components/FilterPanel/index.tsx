@@ -4,10 +4,10 @@ import Select, {
   type SingleValue,
 } from 'react-select';
 import { customSelectStyles, type SortOptionType } from './SelectStyle';
-import styles from './FilterPanelComponent.module.css';
+import styles from './FilterPanel.module.css';
 import { sortOptions } from '@/data/selectOptions';
 
-type FilterPanelComponentProps = {
+type FilterPanelProps = {
   priceRange: { from: string; to: string };
   onPriceChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   discountOnly: boolean;
@@ -17,7 +17,7 @@ type FilterPanelComponentProps = {
   pathname: string;
 };
 
-export default function FilterPanelComponent({
+export default function FilterPanel({
   priceRange,
   onPriceChange,
   discountOnly,
@@ -25,7 +25,7 @@ export default function FilterPanelComponent({
   sortOrder,
   onSortChange,
   pathname,
-}: FilterPanelComponentProps) {
+}: FilterPanelProps) {
   const handleSelectChange = (
     newValue: SingleValue<SortOptionType> | MultiValue<SortOptionType>,
     _actionMeta: ActionMeta<SortOptionType>

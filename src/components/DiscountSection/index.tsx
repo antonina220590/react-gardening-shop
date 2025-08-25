@@ -1,6 +1,6 @@
 import styles from './DiscountSection.module.css';
 import image from '../../assets/discount.png';
-import FormComponent from '../FormComponent';
+import FormComponent from '../ui/Form';
 import { useSendSaleRequestMutation } from '../../store/api/apiSlice';
 import type { SubmitHandler } from 'react-hook-form';
 import ButtonBanner from '../ui/ButtonBanner';
@@ -10,6 +10,7 @@ import {
   saleFormInputs,
   type SaleFormValues,
 } from '../../schema/validation';
+
 export default function DiscountSection() {
   const [sendSaleRequest, { isLoading, isSuccess }] =
     useSendSaleRequestMutation();

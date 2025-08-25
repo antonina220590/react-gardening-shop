@@ -1,10 +1,10 @@
 import type { Product } from '@/types/data';
-import QuantityCounterComponent from '../CounterComponent';
+import QuantityCounterComponent from '../ui/ProductQuantity';
 import styles from './ShoppingCartProduct.module.css';
-import CloseIcon from '../ui/CloseIcon';
+import CloseIcon from '../ui/icons/CloseIcon';
 import { Link } from 'react-router-dom';
 
-type ShoppingCartComponentProps = {
+type ShoppingCartProductProps = {
   product: Product;
   onIncrement: () => void;
   onDecrement: () => void;
@@ -13,14 +13,14 @@ type ShoppingCartComponentProps = {
   id: number;
 };
 
-export default function ShoppingCartComponent({
+export default function ShoppingCartProduct({
   product,
   onDecrement,
   onIncrement,
   onDelete,
   quantity,
   id,
-}: ShoppingCartComponentProps) {
+}: ShoppingCartProductProps) {
   const baseUrl = import.meta.env.VITE_API_BASE_URL || '';
   const imageUrl = `${baseUrl}${product.image}`;
 

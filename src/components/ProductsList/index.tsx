@@ -5,15 +5,14 @@ import {
 } from '../../store/api/apiSlice';
 import { categoriesMap } from '../../data/categories';
 import type { Product } from '@/types/data';
-
-import ProductCard from '../../components/ProductCard';
-import ErrorLoadComponent from '../../components/ErrorLoadComponent';
-import styles from './ProductsListComponent.module.css';
-import FilterPanelComponent from '../FilterPanelComponent';
+import ProductCard from '../ProductCard';
+import ErrorLoadComponent from '../ui/ErrorMessage';
+import styles from './ProductsList.module.css';
+import FilterPanelComponent from '../FilterPanel';
 import { useState } from 'react';
-import SpinnerComponent from '../SpinnerComponent';
+import SpinnerComponent from '../ui/Spinner';
 
-export default function ProductListPage() {
+export default function ProductList() {
   const [priceRange, setPriceRange] = useState({ from: '', to: '' });
   const [discountOnly, setDiscountOnly] = useState(false);
   const [sortOrder, setSortOrder] = useState('default');

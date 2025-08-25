@@ -1,18 +1,18 @@
-import styles from './QuantityCounterComponent.module.css';
-import MinusIcon from '../ui/MinusIcon';
-import PlusIcon from '../ui/PlusIcon';
+import styles from './ProductQuantity.module.css';
+import MinusIcon from '../icons/MinusIcon';
+import PlusIcon from '../icons/PlusIcon';
 
-type QuantityComponentProps = {
+type ProductQuantityProps = {
   quantity: number;
   onDecrement: () => void;
   onIncrement: () => void;
 };
 
-export default function QuantityCounterComponent({
+export default function ProductQuantity({
   quantity,
   onDecrement,
   onIncrement,
-}: QuantityComponentProps) {
+}: ProductQuantityProps) {
   return (
     <div className={styles.quantity_selector}>
       <button

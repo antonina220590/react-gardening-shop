@@ -4,7 +4,7 @@ import logo from '../../assets/logo.png';
 import icon from '../../assets/icon.svg';
 import styles from './Header.module.css';
 import { useEffect, useState } from 'react';
-import MobileMenu from '../MobileMenu';
+import MobileMenu from '../ui/MobileMenu';
 import { useAppSelector } from '../../store/hooks';
 
 const navLinks = [

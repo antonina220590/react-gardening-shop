@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styles from './ProductCard.module.css';
-import AddToCartButton from '../ui/AddToCartBtn';
+import AddToCartButton from '../ui/AddToCartButton';
 import type { Product } from '@/types/data';
 type ProductCardProps = {
   id: number;

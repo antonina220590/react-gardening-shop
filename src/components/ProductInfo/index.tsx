@@ -1,14 +1,14 @@
-import styles from './ProductInfoComponent.module.css';
+import styles from './ProductInfo.module.css';
 import { useParams } from 'react-router-dom';
 import { useGetProductByIdQuery } from '../../store/api/apiSlice';
-import QuantityCounterComponent from '../CounterComponent';
-import ErrorLoadComponent from '../ErrorLoadComponent';
-import SpinnerComponent from '../SpinnerComponent';
-import AddToCartButton from '../ui/AddToCartBtn';
+import QuantityCounterComponent from '../ui/ProductQuantity';
+import ErrorLoadComponent from '../ui/ErrorMessage';
+import SpinnerComponent from '../ui/Spinner';
+import AddToCartButton from '../ui/AddToCartButton';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { decrementItem, incrementItem } from '@/store/cart/cartSlice';
 import { useEffect, useState } from 'react';
-export default function ProductInfoComponent() {
+export default function ProductInfo() {
   const { productId } = useParams();
   const dispatch = useAppDispatch();
   const [quantity, setQuantity] = useState(1);

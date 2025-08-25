@@ -1,9 +1,9 @@
 import type { Product } from '@/types/data';
 import { useGetAllProductsQuery } from '../../store/api/apiSlice';
-import CategoryHeader from '../CategoryHeader';
+import CategoryHeader from '../ui/CategoryHeader';
 import styles from './SaleSection.module.css';
 import ProductCard from '../ProductCard';
-import ErrorLoadComponent from '../ErrorLoadComponent';
+import ErrorLoadComponent from '../ui/ErrorMessage';
 
 export default function SaleSection() {
   const { data: allProducts, isLoading, isError } = useGetAllProductsQuery();

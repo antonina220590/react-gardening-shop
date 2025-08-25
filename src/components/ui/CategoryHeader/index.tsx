@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styles from './CategoryHeader.module.css';
-import ButtonNav from '../ui/ButtonNavigation';
+import ButtonNav from '../ButtonNavigation';
 interface CategoryHeaderProps {
   title: string;
   pathTo: string;

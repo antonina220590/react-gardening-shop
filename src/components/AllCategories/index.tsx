@@ -1,9 +1,9 @@
 import { useGetAllCategoriesQuery } from '@/store/api/apiSlice';
 import styles from './AllCategories.module.css';
-import ErrorLoadComponent from '../ErrorLoadComponent';
+import ErrorLoadComponent from '../ui/ErrorMessage';
 import { categoriesMap } from '@/data/categories';
 import { Link } from 'react-router-dom';
-import SpinnerComponent from '../SpinnerComponent';
+import SpinnerComponent from '../ui/Spinner';
 
 export default function AllCategories() {
   const {

@@ -6,7 +6,7 @@ import {
   type FieldValues,
   type Path,
 } from 'react-hook-form';
-import styles from './FormComponent.module.css';
+import styles from './Form.module.css';
 
 export type FormInput<T extends FieldValues> = {
   name: Path<T>;
@@ -14,7 +14,7 @@ export type FormInput<T extends FieldValues> = {
   placeholder: string;
 };
 
-type FormComponentProps<TSchema extends yup.AnyObjectSchema> = {
+type FormProps<TSchema extends yup.AnyObjectSchema> = {
   inputs: FormInput<yup.InferType<TSchema>>[];
   submitText?: string;
   onSubmit: SubmitHandler<yup.InferType<TSchema>>;
@@ -29,7 +29,7 @@ type FormComponentProps<TSchema extends yup.AnyObjectSchema> = {
   }) => React.ReactNode;
 };
 
-export default function FormComponent<TSchema extends yup.AnyObjectSchema>({
+export default function Form<TSchema extends yup.AnyObjectSchema>({
   inputs,
   onSubmit,
   isLoading,
@@ -37,7 +37,7 @@ export default function FormComponent<TSchema extends yup.AnyObjectSchema>({
   theme = 'dark',
   renderButton,
   validationSchema,
-}: FormComponentProps<TSchema>) {
+}: FormProps<TSchema>) {
   type FormValues = yup.InferType<TSchema>;
   const {
     register,

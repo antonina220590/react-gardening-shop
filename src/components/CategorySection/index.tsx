@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import styles from './CategorySection.module.css';
-import CategoryHeader from '../CategoryHeader';
+import CategoryHeader from '../ui/CategoryHeader';
 import { useGetAllCategoriesQuery } from '../../store/api/apiSlice';
 import { categoriesMap } from '@/data/categories';
-import ErrorLoadComponent from '../ErrorLoadComponent';
+import ErrorLoadComponent from '../ui/ErrorMessage';
 
 export default function CategorySection() {
   const {
