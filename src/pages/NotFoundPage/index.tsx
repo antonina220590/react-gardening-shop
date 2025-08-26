@@ -1,7 +1,7 @@
 import styles from './NotFoundPage.module.css';
 import image from '../../assets/404.png';
 import { Link } from 'react-router-dom';
-import ButtonCard from '@/components/ui/ButtonCard';
+import Button from '@/components/ui/Button';
 export default function NotFoundPage() {
   return (
     <section>
@@ -17,7 +17,9 @@ export default function NotFoundPage() {
           </div>
           <Link to="/">
             <div className={styles.notfound_btn}>
-              <ButtonCard text="Go Home" />
+              <Button type="button" variant="card">
+                Go Home
+              </Button>
             </div>
           </Link>
         </div>

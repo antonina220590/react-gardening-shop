@@ -3,13 +3,13 @@ import image from '../../assets/discount.png';
 import FormComponent from '../ui/Form';
 import { useSendSaleRequestMutation } from '../../store/api/apiSlice';
 import type { SubmitHandler } from 'react-hook-form';
-import ButtonBanner from '../ui/ButtonBanner';
 import { toast } from 'react-toastify';
 import {
   schema,
   saleFormInputs,
   type SaleFormValues,
 } from '../../schema/validation';
+import Button from '../ui/Button';
 
 export default function DiscountSection() {
   const [sendSaleRequest, { isLoading, isSuccess }] =
@@ -48,14 +48,24 @@ export default function DiscountSection() {
                 isLoading={isLoading}
                 isSuccess={isSuccess}
                 validationSchema={schema}
-                renderButton={({ isLoading, isSuccess }) => (
-                  <ButtonBanner
-                    text="Get a discount"
-                    isLoading={isLoading}
-                    isSuccess={isSuccess}
-                    successText="Request Submitted"
-                  />
-                )}
+                renderButton={({ isLoading, isSuccess }) => {
+                  const buttonText = isLoading
+                    ? 'Sending...'
+                    : isSuccess
+                      ? 'Request Submitted'
+                      : 'Get a discount';
+                  const buttonVariant = isSuccess ? 'banner-success' : 'banner';
+
+                  return (
+                    <Button
+                      type="submit"
+                      disabled={isLoading || isSuccess}
+                      variant={buttonVariant}
+                    >
+                      {buttonText}
+                    </Button>
+                  );
+                }}
               />
             </div>
           </div>

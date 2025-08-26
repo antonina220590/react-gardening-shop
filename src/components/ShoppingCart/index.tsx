@@ -9,7 +9,6 @@ import {
   removeItem,
 } from '@/store/cart/cartSlice';
 import FormComponent from '../ui/Form';
-import ButtonCard from '../ui/ButtonCard';
 import CategoryHeader from '../ui/CategoryHeader';
 import { useSendOrderRequestMutation } from '@/store/api/apiSlice';
 import { toast } from 'react-toastify';
@@ -124,7 +123,9 @@ export default function ShoppingCart() {
               </p>
               <Link to="/products" className={styles.link}>
                 <div className={styles.btn_container}>
-                  <ButtonCard text="Continue Shopping" />
+                  <Button type="button" variant="card">
+                    Continue Shopping
+                  </Button>
                 </div>
               </Link>
             </div>

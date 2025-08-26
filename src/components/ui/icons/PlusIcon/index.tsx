@@ -1,4 +1,4 @@
-type IconProps = React.SVGProps<SVGSVGElement>;
+import type { IconProps } from '@/types';
 
 export default function PlusIcon(props: IconProps) {
   return (

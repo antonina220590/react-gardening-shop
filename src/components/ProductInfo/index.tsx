@@ -8,6 +8,7 @@ import AddToCartButton from '../ui/AddToCartButton';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { decrementItem, incrementItem } from '@/store/cart/cartSlice';
 import { useEffect, useState } from 'react';
+
 export default function ProductInfo() {
   const { productId } = useParams();
   const dispatch = useAppDispatch();

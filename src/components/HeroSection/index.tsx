@@ -1,6 +1,6 @@
 import styles from './HeroSection.module.css';
-import ButtonCard from '../ui/ButtonCard';
 import { Link } from 'react-router-dom';
+import Button from '../ui/Button';
 
 export default function HeroSection() {
   return (
@@ -12,7 +12,9 @@ export default function HeroSection() {
         </h1>
         <Link to="/sales">
           <div className={styles.btn_container}>
-            <ButtonCard text="Check out" />
+            <Button type="button" variant="card">
+              Check out
+            </Button>
           </div>
         </Link>
       </div>

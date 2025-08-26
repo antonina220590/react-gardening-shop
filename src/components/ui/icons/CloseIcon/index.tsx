@@ -1,4 +1,5 @@
-type IconProps = React.SVGProps<SVGSVGElement>;
+import type { IconProps } from '@/types';
+
 export default function CloseIcon(props: IconProps) {
   return (
     <svg
