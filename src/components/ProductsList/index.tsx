@@ -6,17 +6,16 @@ import {
 import { categoriesMap } from '../../data/categories';
 import type { Product } from '@/types/data';
 import ProductCard from '../ProductCard';
-import ErrorLoadComponent from '../ui/ErrorMessage';
+import ErrorMessage from '../ui/ErrorMessage';
 import styles from './ProductsList.module.css';
 import FilterPanelComponent from '../FilterPanel';
 import { useState } from 'react';
-import SpinnerComponent from '../ui/Spinner';
+import Spinner from '../ui/Spinner';
 
 export default function ProductList() {
   const [priceRange, setPriceRange] = useState({ from: '', to: '' });
   const [discountOnly, setDiscountOnly] = useState(false);
   const [sortOrder, setSortOrder] = useState('default');
-
   const { categoryId } = useParams();
   const location = useLocation();
 
@@ -91,11 +90,11 @@ export default function ProductList() {
   const isLoading = isCategoryLoading || areAllProductsLoading;
   const isError = isCategoryError || areAllProductsError;
 
-  if (isLoading) return <SpinnerComponent />;
-  if (isError) return <ErrorLoadComponent />;
+  if (isLoading) return <Spinner />;
+  if (isError) return <ErrorMessage />;
 
   return (
-    <section>
+    <section className={styles.wrapper}>
       <div className="container">
         <h1 className={styles.title}>{title}</h1>
         <FilterPanelComponent
@@ -108,7 +107,7 @@ export default function ProductList() {
           pathname={location.pathname}
         />
 
-        <div className={styles.products_container}>
+        <div className={styles.products}>
           {filteredAndSortedProducts?.map((product) => (
             <ProductCard
               key={product.id}

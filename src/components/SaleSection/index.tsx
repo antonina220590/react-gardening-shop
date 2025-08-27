@@ -3,7 +3,8 @@ import { useGetAllProductsQuery } from '../../store/api/apiSlice';
 import CategoryHeader from '../ui/CategoryHeader';
 import styles from './SaleSection.module.css';
 import ProductCard from '../ProductCard';
-import ErrorLoadComponent from '../ui/ErrorMessage';
+import ErrorMessage from '../ui/ErrorMessage';
+import Spinner from '../ui/Spinner';
 
 export default function SaleSection() {
   const { data: allProducts, isLoading, isError } = useGetAllProductsQuery();
@@ -11,9 +12,9 @@ export default function SaleSection() {
   let content;
 
   if (isLoading) {
-    content = <p>Loading...</p>;
+    content = <Spinner />;
   } else if (isError) {
-    content = <ErrorLoadComponent />;
+    content = <ErrorMessage />;
   } else if (allProducts) {
     const discountedProducts = allProducts
       ?.filter((product: Product) => product.discont_price !== null)
@@ -25,7 +26,7 @@ export default function SaleSection() {
       .slice(0, 4);
 
     content = (
-      <div className={styles.products_container}>
+      <div className={styles.products}>
         {discountedProducts?.map((product) => (
           <ProductCard
             key={product.id}

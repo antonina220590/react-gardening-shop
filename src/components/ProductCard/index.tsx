@@ -38,27 +38,27 @@ export default function ProductCard({
   const imageUrl = `${baseUrl}${product.image}`;
 
   return (
-    <div key={id} className={styles.product_card}>
-      <div className={styles.product_img}>
+    <div key={id} className={styles.card}>
+      <div className={styles.imageContainer}>
         {discount_percent > 0 && (
-          <div className={styles.discount_badge}>-{discount_percent}%</div>
+          <div className={styles.badge}>-{discount_percent}%</div>
         )}
 
-        <div className={styles.product_btn}>
+        <div className={styles.btnWrapper}>
           <AddToCartButton product={product} quantity={1} />
         </div>
 
-        <img src={imageUrl} alt={title}></img>
+        <img className={styles.image} src={imageUrl} alt={title}></img>
       </div>
       <Link to={`/products/${id}`}>
-        <div className={styles.product_info}>
-          <p className={styles.product_title}>{title}</p>
-          <div className={styles.price_container}>
+        <div className={styles.info}>
+          <p className={styles.title}>{title}</p>
+          <div className={styles.priceWrapper}>
             {discount_price && (
-              <p className={styles.product_price}>${discount_price}</p>
+              <p className={styles.productPrice}>${discount_price}</p>
             )}
             <p
-              className={`${discount_price ? styles.product_discounted_price : styles.product_price}`}
+              className={`${discount_price ? styles.discountedPrice : styles.productPrice}`}
             >
               ${price}
             </p>

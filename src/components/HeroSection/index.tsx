@@ -6,12 +6,12 @@ export default function HeroSection() {
   return (
     <section className={styles.hero}>
       <div className="container">
-        <h1 className={styles.hero_title}>
+        <h1 className={styles.title}>
           Amazing Discounts
           <br /> on Garden Products!
         </h1>
         <Link to="/sales">
-          <div className={styles.btn_container}>
+          <div className={styles.btnWrapper}>
             <Button type="button" variant="card">
               Check out
             </Button>

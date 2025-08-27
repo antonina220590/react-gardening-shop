@@ -39,7 +39,7 @@ export default function FilterPanel({
 
   return (
     <div className={styles.panel}>
-      <div className={styles.filter_group}>
+      <div className={styles.group}>
         <label htmlFor="price_from" className={styles.label}>
           Price
         </label>
@@ -50,6 +50,7 @@ export default function FilterPanel({
           placeholder="from"
           value={priceRange.from}
           onChange={onPriceChange}
+          className={styles.input}
         />
         <input
           type="number"
@@ -57,20 +58,22 @@ export default function FilterPanel({
           placeholder="to"
           value={priceRange.to}
           onChange={onPriceChange}
+          className={styles.input}
         />
       </div>
       {pathname !== '/sales' && (
-        <div className={styles.filter_group}>
+        <div className={styles.group}>
           <label htmlFor="discounted">Discounted items</label>
           <input
             id="discounted"
             type="checkbox"
             checked={discountOnly}
             onChange={onDiscountChange}
+            className={styles.checkbox}
           />
         </div>
       )}
-      <div className={styles.filter_group}>
+      <div className={styles.group}>
         <label htmlFor="sort_order">Sorted</label>
         <StyledSelect
           inputId="sort_order"

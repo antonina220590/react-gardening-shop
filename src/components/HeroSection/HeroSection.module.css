@@ -10,7 +10,7 @@
   padding: 80px 0;
 }
 
-.hero_title {
+.title {
   display: flex;
   width: 100%;
   font-size: clamp(42px, 8vw, 96px);
@@ -21,7 +21,7 @@
   padding-bottom: 6px;
 }
 
-.btn_container {
+.btnWrapper {
   max-width: 218px;
   margin-top: 32px;
 }

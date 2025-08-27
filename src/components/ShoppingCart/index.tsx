@@ -69,14 +69,14 @@ export default function ShoppingCart() {
   return (
     <>
       <div className="container">
-        <div className={styles.shopping_cart}>
+        <div className={styles.wrapper}>
           <CategoryHeader
             title={'Shopping cart'}
             pathTo={'/products'}
             btnText={'Back to the store'}
           />
           {cartItems.length ? (
-            <div className={styles.cart_container}>
+            <div className={styles.cart}>
               <div>
                 {cartItems.map((item) => (
                   <ShoppingCartProduct
@@ -90,12 +90,12 @@ export default function ShoppingCart() {
                   />
                 ))}
               </div>
-              <div className={styles.form_container}>
-                <h3 className={styles.order_title}>Order details</h3>
-                <p className={styles.order_info}>{totalCount} items</p>
-                <div className={styles.order_price_container}>
-                  <p className={styles.order_info}>Total: </p>
-                  <span className={styles.order_price}>
+              <div className={styles.formWrapper}>
+                <h3 className={styles.orderTitle}>Order details</h3>
+                <p className={styles.orderInfo}>{totalCount} items</p>
+                <div className={styles.priceWrapper}>
+                  <p className={styles.orderInfo}>Total: </p>
+                  <span className={styles.orderPrice}>
                     ${totalAmount.toFixed(2)}
                   </span>
                 </div>
@@ -117,12 +117,12 @@ export default function ShoppingCart() {
               </div>
             </div>
           ) : (
-            <div className={styles.empty_basket_container}>
-              <p className={styles.empty_basket_text}>
+            <div className={styles.emptyCart}>
+              <p className={styles.emptyCartText}>
                 Looks like you have no item in your basket currently.
               </p>
               <Link to="/products" className={styles.link}>
-                <div className={styles.btn_container}>
+                <div className={styles.btnWrapper}>
                   <Button type="button" variant="card">
                     Continue Shopping
                   </Button>
@@ -133,12 +133,12 @@ export default function ShoppingCart() {
         </div>
       </div>
       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-        <div className={styles.modal_container}>
-          <h2 className={styles.modal_title}>Congratulations!</h2>
-          <p className={styles.modal_message}>
+        <div className={styles.modal}>
+          <h2 className={styles.modalTitle}>Congratulations!</h2>
+          <p className={styles.modalMessage}>
             Your order has been successfully placed on the website.
           </p>
-          <p className={styles.modal_message}>
+          <p className={styles.modalMessage}>
             A manager will contact you shortly to confirm your order.
           </p>
         </div>

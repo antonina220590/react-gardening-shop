@@ -2,7 +2,7 @@
   margin-top: 80px;
 }
 
-.products_container {
+.products {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 32px;

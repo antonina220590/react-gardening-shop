@@ -41,7 +41,8 @@ export default function ProductInfo() {
     return <ErrorLoadComponent />;
   }
 
-  const imageUrl = product?.image;
+  const baseUrl = import.meta.env.VITE_API_BASE_URL || '';
+  const imageUrl = `${baseUrl}${product.image}`;
 
   let discount_percent = 0;
   if (product.discont_price) {
@@ -67,33 +68,31 @@ export default function ProductInfo() {
   };
 
   return (
-    <section className={styles.single_product}>
+    <section className={styles.wrapper}>
       <div className="container">
-        <div className={styles.product_wrapper}>
-          <div className={styles.image_container}>
+        <div className={styles.product}>
+          <div className={styles.imageWrapper}>
             <img
               src={imageUrl}
               alt={product.title}
-              className={styles.product_image}
+              className={styles.image}
             ></img>
           </div>
-          <div className={styles.info_container}>
+          <div className={styles.info}>
             <h1 className={styles.title}>{product.title}</h1>
-            <div className={styles.price_container}>
+            <div className={styles.priceWrapper}>
               {product.discont_price && (
-                <p className={styles.product_price}>${product.discont_price}</p>
+                <p className={styles.productPrice}>${product.discont_price}</p>
               )}
-              <div className={styles.discont_container}>
+              <div className={styles.discontWrapper}>
                 <p
-                  className={`${product.discont_price ? styles.product_discounted_price : styles.product_price}`}
+                  className={`${product.discont_price ? styles.discountedPrice : styles.productPrice}`}
                 >
                   ${product.price}
                 </p>
-                <div className={styles.badge_container}>
+                <div className={styles.badgeWrapper}>
                   {discount_percent > 0 && (
-                    <div className={styles.discount_badge}>
-                      -{discount_percent}%
-                    </div>
+                    <div className={styles.badge}>-{discount_percent}%</div>
                   )}
                 </div>
               </div>
@@ -106,9 +105,9 @@ export default function ProductInfo() {
               />
               <AddToCartButton product={product} quantity={quantity} />
             </div>
-            <div className={styles.description_container}>
-              <h2 className={styles.description_title}>Description</h2>
-              <p className={styles.description_text}>{product.description}</p>
+            <div className={styles.description}>
+              <h2 className={styles.descriptionTitle}>Description</h2>
+              <p className={styles.descriptionText}>{product.description}</p>
             </div>
           </div>
         </div>

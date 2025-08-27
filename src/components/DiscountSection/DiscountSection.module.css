@@ -1,5 +1,8 @@
-.discount {
+.wrapper {
   margin-top: 80px;
+}
+
+.discount {
   background: linear-gradient(261.47deg, #0b710b 32.63%, #339933 98.96%);
   padding: 32px;
   border-radius: var(--border-radius-big);
@@ -9,7 +12,7 @@
   position: relative;
 }
 
-.discount_title {
+.title {
   text-align: center;
   margin-bottom: 36px;
   font-size: clamp(32px, 1.25rem + 3.74vw, 64px);
@@ -17,14 +20,14 @@
   color: var(--color-white);
 }
 
-.discount_content {
+.content {
   flex-grow: 1;
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
 }
 
-.discount_image {
+.image {
   position: absolute;
   left: 2%;
   bottom: 0;
@@ -32,21 +35,21 @@
   height: 70%;
 }
 
-.discount_form {
+.formWrapper {
   width: 45%;
   max-width: 516px;
 }
 
 @media (max-width: 850px) {
-  .discount_image {
+  .image {
     display: none;
   }
 
-  .discount_content {
+  .content {
     justify-content: center;
   }
 
-  .discount_form {
+  .form {
     width: 80%;
   }
 }

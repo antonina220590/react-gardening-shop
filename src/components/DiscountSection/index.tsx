@@ -31,17 +31,17 @@ export default function DiscountSection() {
   };
 
   return (
-    <section>
+    <section className={styles.wrapper}>
       <div className="container">
         <div className={styles.discount}>
-          <h3 className={styles.discount_title}>5% off on the first order</h3>
-          <div className={styles.discount_content}>
+          <h3 className={styles.title}>5% off on the first order</h3>
+          <div className={styles.content}>
             <img
-              className={styles.discount_image}
+              className={styles.image}
               src={image}
               alt="discount section image"
             ></img>
-            <div className={styles.discount_form}>
+            <div className={styles.formWrapper}>
               <FormComponent<typeof schema>
                 inputs={saleFormInputs}
                 onSubmit={handleSaleSubmit}

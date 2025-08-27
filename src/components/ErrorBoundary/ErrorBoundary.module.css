@@ -1,18 +1,21 @@
-.boundary_container {
+.wrapper {
+  margin-top: 80px;
+}
+
+.boundary {
   display: flex;
   flex-direction: column;
-  margin-top: 80px;
   align-items: center;
   gap: 32px;
 }
 
-.boundary_title {
+.title {
   font-size: clamp(32px, 1.3rem + 3vw, 64px);
   color: var(--color-primary);
   text-align: center;
 }
 
-.boundary_message {
+.message {
   font-size: 20px;
   font-weight: 500;
   color: var(--color-grey);
