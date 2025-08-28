@@ -1,8 +1,8 @@
-import category1 from '../assets/fertilizer.png';
-import category2 from '../assets/protectiveProducts.png';
-import category3 from '../assets/plantingMaterial.png';
-import category4 from '../assets/tools.png';
-import category5 from '../assets/pots.png';
+import category1 from '../assets/fertilizer.webp';
+import category2 from '../assets/protectiveProducts.webp';
+import category3 from '../assets/plantingMaterial.webp';
+import category4 from '../assets/tools.webp';
+import category5 from '../assets/pots.webp';
 
 export const categoriesMap = [
   { id: 1, title: 'Fertilizer', image: category1 },
