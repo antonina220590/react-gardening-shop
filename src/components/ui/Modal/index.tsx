@@ -16,8 +16,8 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
     <div className={styles.overlay} onClick={onClose}>
       <div className={styles.content} onClick={(e) => e.stopPropagation()}>
         {children}
-        <button className={styles.close_btn} onClick={onClose}>
-          <CloseIcon className={styles.close_icon} />
+        <button className={styles.closeBtn} onClick={onClose}>
+          <CloseIcon className={styles.closeIcon} />
         </button>
       </div>
     </div>

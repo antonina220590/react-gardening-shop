@@ -22,7 +22,7 @@
   min-height: 236px;
 }
 
-.close_btn {
+.closeBtn {
   position: absolute;
   top: 32px;
   right: 32px;
@@ -32,7 +32,7 @@
   cursor: pointer;
 }
 
-.close_icon {
+.closeIcon {
   stroke: var(--color-white);
   width: 44px;
   height: 44px;

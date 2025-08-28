@@ -2,7 +2,12 @@
   width: 100%;
 }
 
-.form input {
+.placeholder {
+  min-height: 16px;
+  text-align: center;
+}
+
+.input {
   background-color: transparent;
   width: 100%;
   font-family: var(--font-main);
@@ -14,23 +19,18 @@
   color: var(--color-white);
 }
 
-.form.light input {
+.form.light .input {
   background-color: var(--color-white);
   border: 1px solid var(--color-grey-divider);
   color: var(--color-grey);
 }
 
-.form input::placeholder {
+.input::placeholder {
   color: var(--color-white);
 }
 
-.form.light input::placeholder {
+.form.light .input::placeholder {
   color: var(--color-grey);
-}
-
-.input_container {
-  display: flex;
-  flex-direction: column;
 }
 
 .error {
@@ -39,15 +39,10 @@
   color: var(--color-error);
 }
 
-.error_placeholder {
-  min-height: 16px;
-  text-align: center;
-}
-
-.form input:focus {
+.input:focus {
   outline: none;
 }
 
-.form_btn {
+.btn {
   margin-top: 32px;
 }

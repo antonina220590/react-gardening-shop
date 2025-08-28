@@ -1,4 +1,4 @@
-.error_container {
+.wrapper {
   margin-top: 40px;
   width: 100%;
   display: flex;
@@ -14,7 +14,7 @@
   padding: 16px;
 }
 
-.error_text {
+.text {
   font-family: var(--font-main);
   font-size: clamp(25px, 8vw, 46px);
   font-weight: 600;

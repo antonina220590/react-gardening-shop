@@ -8,7 +8,7 @@ export default function ButtonNavigation({
   onClick,
 }: ButtonNavigationProps) {
   return (
-    <button className={styles.button_nav} type="button" onClick={onClick}>
+    <button className={styles.nav} type="button" onClick={onClick}>
       {text}
     </button>
   );

@@ -1,4 +1,4 @@
-.mobile_menu {
+.menu {
   z-index: 900;
   position: fixed;
   top: 0%;
@@ -15,7 +15,7 @@
   transition: transform 0.3s ease-in-out;
 }
 
-.mobile_menu.active {
+.menu.active {
   transform: translateX(0);
 }
 
@@ -26,12 +26,12 @@
   gap: 40px;
 }
 
-.nav_link {
+.link {
   font-size: 24px;
   font-weight: 600;
   color: var(--color-text);
 }
 
-.active_link {
+.activeLink {
   color: var(--color-primary);
 }

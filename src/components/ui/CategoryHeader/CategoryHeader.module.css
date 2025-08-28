@@ -1,15 +1,15 @@
-.category_name {
-  font-size: clamp(32px, 1.25rem + 3.74vw, 64px);
-  font-weight: 700;
-}
-
-.category_title {
+.title {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.category_line {
+.name {
+  font-size: clamp(32px, 1.25rem + 3.74vw, 64px);
+  font-weight: 700;
+}
+
+.line {
   flex-grow: 1;
   height: 1px;
   background-color: var(--color-grey-divider);

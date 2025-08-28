@@ -14,16 +14,16 @@ export default function ProductQuantity({
   onIncrement,
 }: ProductQuantityProps) {
   return (
-    <div className={styles.quantity_selector}>
+    <div className={styles.selector}>
       <button
-        className={styles.quantity_btn}
+        className={styles.btn}
         onClick={onDecrement}
         disabled={quantity <= 1}
       >
         <MinusIcon className={styles.icon} />
       </button>
       <span className={styles.quantity}>{quantity}</span>
-      <button className={styles.quantity_btn} onClick={onIncrement}>
+      <button className={styles.btn} onClick={onIncrement}>
         <PlusIcon className={styles.icon} />
       </button>
     </div>

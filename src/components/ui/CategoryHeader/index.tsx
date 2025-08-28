@@ -14,9 +14,9 @@ export default function CategoryHeader({
   btnText,
 }: CategoryHeaderProps) {
   return (
-    <div className={styles.category_title}>
-      <h2 className={styles.category_name}>{title}</h2>
-      <span className={styles.category_line}></span>
+    <div className={styles.title}>
+      <h2 className={styles.name}>{title}</h2>
+      <span className={styles.line}></span>
       <Link to={pathTo}>
         <ButtonNav text={btnText} />
       </Link>

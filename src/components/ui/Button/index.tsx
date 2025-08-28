@@ -11,8 +11,7 @@ type ButtonProps = {
     | 'success'
     | 'banner'
     | 'banner-success'
-    | 'card'
-    | 'nav';
+    | 'card';
 };
 
 export default function Button({

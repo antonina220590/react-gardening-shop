@@ -12,11 +12,9 @@ export default function MobileMenu({
   links,
   closeMenu,
 }: MobileMenuProps) {
-  const menuClasses = `${styles.mobile_menu} ${isOpen ? styles.active : ''}`;
+  const menuClasses = `${styles.menu} ${isOpen ? styles.active : ''}`;
   const getLinkClass = ({ isActive }: { isActive: boolean }) => {
-    return isActive
-      ? `${styles.nav_link} ${styles.active_link}`
-      : styles.nav_link;
+    return isActive ? `${styles.link} ${styles.activeLink}` : styles.link;
   };
 
   return (

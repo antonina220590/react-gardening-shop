@@ -52,8 +52,8 @@ export default function Form<TSchema extends yup.AnyObjectSchema>({
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={formClasses}>
       {inputs.map((input) => (
-        <div key={input.name} className={styles.input_container}>
-          <div className={styles.error_placeholder}>
+        <div key={input.name}>
+          <div className={styles.placeholder}>
             {errors[input.name] && (
               <p className={styles.error}>
                 {String(errors[input.name]?.message)}
@@ -61,16 +61,14 @@ export default function Form<TSchema extends yup.AnyObjectSchema>({
             )}
           </div>
           <input
-            className={styles.form_input}
+            className={styles.input}
             type={input.type}
             placeholder={input.placeholder}
             {...register(input.name)}
           />
         </div>
       ))}
-      <div className={styles.form_btn}>
-        {renderButton({ isLoading, isSuccess })}
-      </div>
+      <div className={styles.btn}>{renderButton({ isLoading, isSuccess })}</div>
     </form>
   );
 }
