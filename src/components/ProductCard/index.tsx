@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import styles from './ProductCard.module.css';
 import AddToCartButton from '../ui/AddToCartButton';
 import type { Product } from '@/types/data';
+import { useProductDiscount } from '@/hooks/useProductDiscount';
 type ProductCardProps = {
   id: number;
   image: string;
@@ -18,10 +19,6 @@ export default function ProductCard({
   price,
   discount_price,
 }: ProductCardProps) {
-  let discount_percent = 0;
-  if (discount_price) {
-    discount_percent = Math.round(((price - discount_price) / price) * 100);
-  }
   const product: Product = {
     id: id,
     image,
@@ -33,6 +30,11 @@ export default function ProductCard({
     updatedAt: '',
     categoryId: '0',
   };
+
+  const discount_percent = useProductDiscount(
+    product?.price ?? 0,
+    product?.discont_price
+  );
 
   const baseUrl = import.meta.env.VITE_API_BASE_URL || '';
   const imageUrl = `${baseUrl}${product.image}`;

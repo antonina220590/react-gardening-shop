@@ -1,8 +1,8 @@
 import category1 from '../assets/fertilizer.webp';
 import category2 from '../assets/protectiveProducts.webp';
 import category3 from '../assets/plantingMaterial.webp';
-import category4 from '/tools.webp';
-import category5 from '/pots.webp';
+import category4 from '../assets/tools.webp';
+import category5 from '../assets/pots.webp';
 import placeholder from '../assets/placeholder_categories.png';
 
 export const categoriesMap = [

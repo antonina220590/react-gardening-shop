@@ -8,6 +8,7 @@ import AddToCartButton from '../ui/AddToCartButton';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { decrementItem, incrementItem } from '@/store/cart/cartSlice';
 import { useEffect, useState } from 'react';
+import { useProductDiscount } from '../../hooks/useProductDiscount';
 
 export default function ProductInfo() {
   const { productId } = useParams();
@@ -33,22 +34,19 @@ export default function ProductInfo() {
     }
   }, [cartItem]);
 
+  const baseUrl = import.meta.env.VITE_API_BASE_URL || '';
+  const imageUrl = product ? `${baseUrl}${product.image}` : '';
+  const discount_percent = useProductDiscount(
+    product?.price ?? 0,
+    product?.discont_price
+  );
+
   if (isProductLoading) {
     return <SpinnerComponent />;
   }
 
   if (isProductError || !product) {
     return <ErrorLoadComponent />;
-  }
-
-  const baseUrl = import.meta.env.VITE_API_BASE_URL || '';
-  const imageUrl = `${baseUrl}${product.image}`;
-
-  let discount_percent = 0;
-  if (product.discont_price) {
-    discount_percent = Math.round(
-      ((product.price - product.discont_price) / product.price) * 100
-    );
   }
 
   const handleIncrement = () => {
