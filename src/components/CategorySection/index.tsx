@@ -29,7 +29,6 @@ export default function CategorySection() {
           if (!categoryVisual) {
             return null;
           }
-
           return (
             <Link
               key={backendCategory.id}
@@ -37,8 +36,8 @@ export default function CategorySection() {
             >
               <div className={styles.card}>
                 <img
-                  className={styles.cardImage}
                   src={categoryVisual.image}
+                  className={styles.cardImage}
                   alt={categoryVisual.title}
                 />
                 <p className={styles.cardTitle}>{categoryVisual.title}</p>
