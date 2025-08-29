@@ -1,10 +1,10 @@
 import type { Product } from '@/types/data';
-import QuantityCounterComponent from '../CounterComponent';
+import QuantityCounterComponent from '../ui/ProductQuantity';
 import styles from './ShoppingCartProduct.module.css';
-import CloseIcon from '../ui/CloseIcon';
+import CloseIcon from '../ui/icons/CloseIcon';
 import { Link } from 'react-router-dom';
 
-type ShoppingCartComponentProps = {
+type ShoppingCartProductProps = {
   product: Product;
   onIncrement: () => void;
   onDecrement: () => void;
@@ -13,41 +13,41 @@ type ShoppingCartComponentProps = {
   id: number;
 };
 
-export default function ShoppingCartComponent({
+export default function ShoppingCartProduct({
   product,
   onDecrement,
   onIncrement,
   onDelete,
   quantity,
   id,
-}: ShoppingCartComponentProps) {
+}: ShoppingCartProductProps) {
   const baseUrl = import.meta.env.VITE_API_BASE_URL || '';
   const imageUrl = `${baseUrl}${product.image}`;
 
   return (
-    <div className={styles.product_container}>
-      <div className={styles.product_img_container}>
+    <div className={styles.product}>
+      <div className={styles.imageWrapper}>
         <Link to={`/products/${id}`}>
-          <img src={imageUrl} className={styles.product_img}></img>
+          <img src={imageUrl} className={styles.image}></img>
         </Link>
       </div>
 
-      <div className={styles.product_data}>
-        <div className={styles.product_title_container}>
-          <p className={styles.product_title}>{product.title}</p>
-          <button onClick={onDelete} className={styles.delete_button}>
+      <div className={styles.data}>
+        <div className={styles.titleWrapper}>
+          <p className={styles.title}>{product.title}</p>
+          <button onClick={onDelete} className={styles.deleteBtn}>
             <CloseIcon className={styles.icon} />
           </button>
         </div>
-        <div className={styles.product_price_container}>
+        <div className={styles.priceWrapper}>
           <QuantityCounterComponent
             quantity={quantity}
             onIncrement={onIncrement}
             onDecrement={onDecrement}
           />
-          <div className={styles.prices_container}>
+          <div className={styles.prices}>
             {product.discont_price > 0 && (
-              <p className={styles.product_price}>
+              <p className={styles.productPrice}>
                 $
                 {quantity > 1
                   ? (product.discont_price * quantity).toFixed(2)
@@ -55,7 +55,7 @@ export default function ShoppingCartComponent({
               </p>
             )}
             <p
-              className={`${product.discont_price ? styles.product_discont_price : styles.product_price}`}
+              className={`${product.discont_price ? styles.discontPrice : styles.productPrice}`}
             >
               $
               {quantity > 1

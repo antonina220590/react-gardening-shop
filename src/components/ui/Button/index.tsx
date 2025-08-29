@@ -5,7 +5,13 @@ type ButtonProps = {
   onClick?: () => void;
   disabled?: boolean;
   type?: 'button' | 'submit' | 'reset';
-  variant?: 'primary' | 'secondary' | 'success';
+  variant?:
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'banner'
+    | 'banner-success'
+    | 'card';
 };
 
 export default function Button({

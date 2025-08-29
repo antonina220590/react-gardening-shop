@@ -4,7 +4,7 @@ import logo from '../../assets/logo.png';
 import icon from '../../assets/icon.svg';
 import styles from './Header.module.css';
 import { useEffect, useState } from 'react';
-import MobileMenu from '../MobileMenu';
+import MobileMenu from '../ui/MobileMenu';
 import { useAppSelector } from '../../store/hooks';
 
 const navLinks = [
@@ -26,14 +26,14 @@ export default function Header() {
   };
 
   const getLinkClass = ({ isActive }: { isActive: boolean }) => {
-    return isActive
-      ? `${styles.header_links} ${styles.active_link}`
-      : styles.header_links;
+    return isActive ? `${styles.links} ${styles.activeLink}` : styles.links;
   };
+
+  const mobileWidth = 850;
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth > 850) {
+      if (window.innerWidth > mobileWidth) {
         setIsMenuOpen(false);
       }
     };
@@ -46,13 +46,9 @@ export default function Header() {
   return (
     <>
       <header className={styles.header}>
-        <div className={`container ${styles.header_container}`}>
+        <div className={`container ${styles.wrapper}`}>
           <Link to="/">
-            <img
-              className={styles.header_logo}
-              src={logo}
-              alt="Green Shop Logo"
-            />
+            <img className={styles.logo} src={logo} alt="Green Shop Logo" />
           </Link>
           <nav className={styles.navigation}>
             {navLinks.map((link) => (
@@ -61,23 +57,21 @@ export default function Header() {
               </NavLink>
             ))}
           </nav>
-          <div className={styles.right_icons}>
+          <div className={styles.icons}>
             <Link to="/cart">
-              <div className={styles.header_basket_container}>
-                <img className={styles.header_basket} src={icon} alt="basket" />
+              <div className={styles.cartContainer}>
+                <img className={styles.cart} src={icon} alt="basket" />
                 {totalCount > 0 && (
-                  <span className={styles.header_productCount}>
-                    {totalCount}
-                  </span>
+                  <span className={styles.productCount}>{totalCount}</span>
                 )}
               </div>
             </Link>
 
             <button
-              className={`${styles.burger_btn} ${isMenuOpen ? styles.active : ''}`}
+              className={`${styles.burger} ${isMenuOpen ? styles.active : ''}`}
               onClick={toggleMenu}
             >
-              <span className={styles.burger_line}></span>
+              <span className={styles.line}></span>
             </button>
           </div>
         </div>

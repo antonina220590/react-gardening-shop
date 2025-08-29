@@ -39,11 +39,11 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
 
     if (hasError) {
       return (
-        <section>
+        <section className={styles.wrapper}>
           <div className="container">
-            <div className={styles.boundary_container}>
-              <h1 className={styles.boundary_title}>Something went wrong</h1>
-              <p className={styles.boundary_message}>
+            <div className={styles.boundary}>
+              <h1 className={styles.title}>Something went wrong</h1>
+              <p className={styles.message}>
                 {error?.message || 'An unexpected error occurred.'}
               </p>
               <div>

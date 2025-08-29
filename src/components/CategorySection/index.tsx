@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import styles from './CategorySection.module.css';
-import CategoryHeader from '../CategoryHeader';
+import CategoryHeader from '../ui/CategoryHeader';
 import { useGetAllCategoriesQuery } from '../../store/api/apiSlice';
 import { categoriesMap } from '@/data/categories';
-import ErrorLoadComponent from '../ErrorLoadComponent';
+import ErrorLoadComponent from '../ui/ErrorMessage';
+import Spinner from '../ui/Spinner';
 
 export default function CategorySection() {
   const {
@@ -15,12 +16,12 @@ export default function CategorySection() {
   let content;
 
   if (isLoading) {
-    content = <p>Loading...</p>;
+    content = <Spinner />;
   } else if (isError) {
     content = <ErrorLoadComponent />;
   } else if (backendCategories) {
     content = (
-      <div className={styles.categories}>
+      <div className={styles.grid}>
         {backendCategories?.slice(0, 4).map((backendCategory) => {
           const categoryVisual = categoriesMap.find(
             (item) => item.id === Number(backendCategory.id)
@@ -28,15 +29,18 @@ export default function CategorySection() {
           if (!categoryVisual) {
             return null;
           }
-
           return (
             <Link
               key={backendCategory.id}
               to={`/categories/${backendCategory.id}`}
             >
-              <div className={styles.category_card}>
-                <img src={categoryVisual.image} alt={categoryVisual.title} />
-                <p className={styles.card_title}>{categoryVisual.title}</p>
+              <div className={styles.card}>
+                <img
+                  src={categoryVisual.image}
+                  className={styles.cardImage}
+                  alt={categoryVisual.title}
+                />
+                <p className={styles.cardTitle}>{categoryVisual.title}</p>
               </div>
             </Link>
           );
@@ -46,7 +50,7 @@ export default function CategorySection() {
   }
 
   return (
-    <section className={styles.category}>
+    <section className={styles.wrapper}>
       <div className="container">
         <CategoryHeader
           title={'Categories'}

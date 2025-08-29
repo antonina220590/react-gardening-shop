@@ -6,37 +6,45 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className="container">
-        <h2 className={styles.footer_title}>Contact</h2>
-        <div className={styles.footer_content}>
-          <div className={styles.footer_items}>
-            <div className={styles.item_container_big}>
-              <p className={styles.item_title}>Phone</p>
-              <a href="tel:+74993506604" className={styles.item_content}>
+        <h2 className={styles.title}>Contact</h2>
+        <div className={styles.content}>
+          <div className={styles.items}>
+            <div className={styles.containerBig}>
+              <p className={styles.itemTitle}>Phone</p>
+              <a href="tel:+74993506604" className={styles.itemContent}>
                 +7 (499) 350-66-04
               </a>
             </div>
-            <div className={styles.item_container_small}>
-              <p className={styles.item_title}>Socials</p>
-              <div className={styles.footer_icons}>
+            <div className={styles.containerSmall}>
+              <p className={styles.itemTitle}>Socials</p>
+              <div className={styles.icons}>
                 <a href="https://www.instagram.com/" target="_blank">
-                  <img src={instagram} alt="instagram icon" />
+                  <img
+                    className={styles.image}
+                    src={instagram}
+                    alt="instagram icon"
+                  />
                 </a>
                 <a href="https://www.whatsapp.com/" target="_blank">
-                  <img src={whatsapp} alt="whatsapp icon" />
+                  <img
+                    className={styles.image}
+                    src={whatsapp}
+                    alt="whatsapp icon"
+                  />
                 </a>
               </div>
             </div>
           </div>
-          <div className={styles.footer_items}>
-            <div className={styles.item_container_big}>
-              <p className={styles.item_title}>Address</p>
-              <p className={styles.item_content}>
+          <div className={styles.items}>
+            <div className={styles.containerBig}>
+              <p className={styles.itemTitle}>Address</p>
+              <p className={styles.itemContent}>
                 Dubininskaya Ulitsa, 96, Moscow, Russia, 115093
               </p>
             </div>
-            <div className={styles.item_container_small}>
-              <p className={styles.item_title}>Working Hours</p>
-              <p className={styles.item_content}>24 hours a day</p>
+            <div className={styles.containerSmall}>
+              <p className={styles.itemTitle}>Working Hours</p>
+              <p className={styles.itemContent}>24 hours a day</p>
             </div>
           </div>
           <iframe

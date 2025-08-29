@@ -1,0 +1,16 @@
+.wrapper {
+  margin-top: 35px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: clamp(32px, 1.25rem + 3.74vw, 64px);
+  margin-top: 116px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 32px;
+  justify-items: center;
+}

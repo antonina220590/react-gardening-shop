@@ -1,11 +1,14 @@
 import styles from './ButtonNavigation.module.css';
-interface ButtonNavProps {
+interface ButtonNavigationProps {
   text: string;
   onClick?: () => void;
 }
-export default function ButtonNav({ text, onClick }: ButtonNavProps) {
+export default function ButtonNavigation({
+  text,
+  onClick,
+}: ButtonNavigationProps) {
   return (
-    <button className={styles.button_nav} type="button" onClick={onClick}>
+    <button className={styles.nav} type="button" onClick={onClick}>
       {text}
     </button>
   );

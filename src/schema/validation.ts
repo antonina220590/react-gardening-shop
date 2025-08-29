@@ -1,5 +1,5 @@
 import * as yup from 'yup';
-import { type FormInput } from '../components/FormComponent';
+import { type FormInput } from '../components/ui/Form';
 
 const phoneRegExp = /^\+?[\d\s-]{10,15}$/;
 

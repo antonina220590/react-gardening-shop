@@ -1,4 +1,4 @@
-.product_container {
+.product {
   display: flex;
   gap: 32px;
   margin-bottom: 16px;
@@ -6,30 +6,55 @@
   border-radius: var(--border-radius-big);
 }
 
-.product_data {
+.imageWrapper {
+  display: flex;
+  padding: 3px;
+  align-items: center;
+  border-right: 1px solid var(--color-grey-divider);
+}
+
+.image {
+  width: 200px;
+  height: 180px;
+}
+
+.data {
   display: flex;
   flex-direction: column;
-  padding: 32px 32px 32px 0;
+  padding: 32px 32px 30px 0;
   gap: 32px;
   width: 100%;
 }
 
-.product_title_container {
+.titleWrapper {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 }
 
-.product_price_container {
-  display: flex;
-  gap: 32px;
-  align-items: flex-end;
-  flex-wrap: wrap;
+.title {
+  font-size: 20px;
+  font-weight: 500;
 }
 
-.product_img {
-  width: 200px;
-  height: 180px;
+.deleteBtn {
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .deleteBtn:hover .icon {
+    stroke: var(--color-primary);
+  }
+}
+
+.priceWrapper {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .icon {
@@ -38,23 +63,19 @@
   height: 24px;
 }
 
-.delete_button {
-  background: none;
-  outline: none;
-  border: none;
-  cursor: pointer;
+.prices {
+  display: flex;
+  gap: 16px;
+  align-items: end;
 }
 
-.delete_button:hover .icon {
-  stroke: var(--color-primary);
+.productPrice {
+  font-size: clamp(28px, 1.5rem + 1vw, 40px);
+  font-weight: 600;
+  color: var(--color-text);
 }
 
-.product_title {
-  font-size: 20px;
-  font-weight: 500;
-}
-
-.product_discont_price {
+.discontPrice {
   font-size: 20px;
   font-weight: 500;
   color: var(--color-grey);
@@ -62,45 +83,26 @@
   padding-bottom: 5px;
 }
 
-.product_price {
-  font-size: clamp(28px, 1.5rem + 1vw, 40px);
-  font-weight: 600;
-  color: var(--color-text);
-}
-
-.product_img_container {
-  display: flex;
-  padding: 3px;
-  align-items: center;
-  border-right: 1px solid var(--color-grey-divider);
-}
-
-.prices_container {
-  display: flex;
-  gap: 16px;
-  align-items: end;
-}
-
 @media (max-width: 485px) {
-  .product_container {
+  .product {
     flex-direction: column;
     align-items: center;
   }
 
-  .product_img_container {
+  .imageWrapper {
     width: 100%;
     border-right: none;
     border-bottom: 1px solid var(--color-grey-divider);
     justify-content: center;
+    padding: 10px;
   }
-  .product_title_container {
+
+  .titleWrapper {
     padding-left: 20px;
     gap: 5px;
   }
-  .product_price_container {
+
+  .priceWrapper {
     justify-content: center;
-  }
-  .product_img_container {
-    padding: 10px;
   }
 }

@@ -1,9 +1,9 @@
+import { Link } from 'react-router-dom';
 import { useGetAllCategoriesQuery } from '@/store/api/apiSlice';
 import styles from './AllCategories.module.css';
-import ErrorLoadComponent from '../ErrorLoadComponent';
+import ErrorMessage from '../ui/ErrorMessage';
 import { categoriesMap } from '@/data/categories';
-import { Link } from 'react-router-dom';
-import SpinnerComponent from '../SpinnerComponent';
+import Spinner from '../ui/Spinner';
 
 export default function AllCategories() {
   const {
@@ -15,12 +15,12 @@ export default function AllCategories() {
   let content;
 
   if (isLoading) {
-    content = <SpinnerComponent />;
+    content = <Spinner />;
   } else if (isError) {
-    content = <ErrorLoadComponent />;
+    content = <ErrorMessage />;
   } else if (backendCategories) {
     content = (
-      <div className={styles.categories_grid}>
+      <div className={styles.grid}>
         {backendCategories?.map((backendCategory) => {
           const categoryVisual = categoriesMap.find(
             (item) => item.id === Number(backendCategory.id)
@@ -34,11 +34,13 @@ export default function AllCategories() {
               key={backendCategory.id}
               to={`/categories/${backendCategory.id}`}
             >
-              <div className={styles.categories_card}>
-                <img src={categoryVisual.image} alt={categoryVisual.title} />
-                <p className={styles.categories_card_title}>
-                  {categoryVisual.title}
-                </p>
+              <div className={styles.card}>
+                <img
+                  className={styles.cardImage}
+                  src={categoryVisual.image}
+                  alt={categoryVisual.title}
+                />
+                <p className={styles.cardTitle}>{categoryVisual.title}</p>
               </div>
             </Link>
           );
@@ -48,9 +50,9 @@ export default function AllCategories() {
   }
 
   return (
-    <section className={styles.categories_container}>
+    <section className={styles.wrapper}>
       <div className="container">
-        <h1 className={styles.categories_title}>Categories</h1>
+        <h1 className={styles.title}>Categories</h1>
         {content}
       </div>
     </section>

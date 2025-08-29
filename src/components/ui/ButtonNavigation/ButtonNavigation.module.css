@@ -1,4 +1,4 @@
-.button_nav {
+.nav {
   background-color: var(--color-light-grey);
   color: var(--color-grey);
   padding: 8px 16px;
@@ -10,12 +10,14 @@
   cursor: pointer;
 }
 
-.button_nav:hover {
-  color: var(--color-text);
+@media (hover: hover) {
+  .nav:hover {
+    color: var(--color-text);
+  }
 }
 
 @media (max-width: 850px) {
-  .button_nav {
+  .nav {
     padding: 4px 8px;
     font-size: 14px;
   }
