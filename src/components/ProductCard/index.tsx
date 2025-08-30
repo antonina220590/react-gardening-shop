@@ -49,8 +49,9 @@ export default function ProductCard({
         <div className={styles.btnWrapper}>
           <AddToCartButton product={product} quantity={1} />
         </div>
-
-        <img className={styles.image} src={imageUrl} alt={title}></img>
+        <div className={styles.imageWrapper}>
+          <img className={styles.image} src={imageUrl} alt={title}></img>
+        </div>
       </div>
       <Link to={`/products/${id}`}>
         <div className={styles.info}>
