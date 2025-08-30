@@ -63,7 +63,9 @@ export default function FilterPanel({
       </div>
       {pathname !== '/sales' && (
         <div className={styles.group}>
-          <label htmlFor="discounted">Discounted items</label>
+          <label htmlFor="discounted" className={styles.label}>
+            Discounted items
+          </label>
           <input
             id="discounted"
             type="checkbox"
@@ -74,7 +76,9 @@ export default function FilterPanel({
         </div>
       )}
       <div className={styles.group}>
-        <label htmlFor="sort_order">Sorted</label>
+        <label htmlFor="sort_order" className={styles.label}>
+          Sorted
+        </label>
         <StyledSelect
           inputId="sort_order"
           options={sortOptions}

@@ -79,14 +79,7 @@ export default function ProductList() {
 
         <div className={styles.products}>
           {filteredAndSortedProducts?.map((product) => (
-            <ProductCard
-              key={product.id}
-              id={Number(product.id)}
-              image={product.image}
-              title={product.title}
-              price={product.price}
-              discount_price={product.discont_price}
-            />
+            <ProductCard key={product.id} product={product} />
           ))}
         </div>
       </div>
