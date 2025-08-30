@@ -28,15 +28,7 @@ export default function SaleSection() {
     content = (
       <div className={styles.products}>
         {discountedProducts?.map((product) => (
-          <ProductCard
-            key={product.id}
-            id={Number(product.id)}
-            image={product.image}
-            title={product.title}
-            price={product.price}
-            discount_price={product.discont_price}
-            variant="compact"
-          />
+          <ProductCard key={product.id} product={product} variant="compact" />
         ))}
       </div>
     );
