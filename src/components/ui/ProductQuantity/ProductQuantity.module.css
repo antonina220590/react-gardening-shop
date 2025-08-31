@@ -7,8 +7,8 @@
 }
 
 .btn {
-  padding: clamp(0.525rem, 0.1rem + 0.1vw, 0.9375rem)
-    clamp(0.5875rem, 0.1rem + 0.1vw, 1rem);
+  padding: clamp(0.625rem, 0.4rem + 1vw, 0.9375rem)
+    clamp(0.6875rem, 0.4rem + 1.2vw, 1rem);
   outline: none;
   cursor: pointer;
   border: none;
@@ -27,11 +27,11 @@
 }
 
 .quantity {
-  font-size: clamp(1rem, 1rem + 0.5vw, 1.25rem);
+  font-size: clamp(1rem, 0.75rem + 2vw, 1.25rem);
   color: var(--color-text);
   font-weight: 600;
-  padding: clamp(0.625rem, 0.5rem + 0.5vw, 1rem)
-    clamp(1.875rem, 1.5rem + 1vw, 2.5rem);
+  padding: clamp(0.625rem, 0.4rem + 1vw, 1rem)
+    clamp(1.875rem, 1.2rem + 2.5vw, 2.5rem);
   min-width: 2ch;
   text-align: center;
   display: flex;
@@ -45,16 +45,5 @@
 
   .quantity {
     flex-direction: column;
-  }
-}
-
-@media (max-width: 930px) {
-  .btn {
-    padding: 10px 11px;
-  }
-
-  .quantity {
-    font-size: 16px;
-    padding: 10px 30px;
   }
 }

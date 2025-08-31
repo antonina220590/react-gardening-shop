@@ -17,6 +17,8 @@
 .image {
   width: 200px;
   height: 180px;
+  border-top-left-radius: var(--border-radius-big);
+  border-bottom-left-radius: var(--border-radius-big);
 }
 
 .data {
