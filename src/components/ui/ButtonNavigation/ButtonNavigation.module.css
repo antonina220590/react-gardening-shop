@@ -24,7 +24,7 @@
 }
 
 @media (max-width: 450px) {
-  .button_nav {
+  .nav {
     padding: 4px 8px;
     font-size: 8px;
   }

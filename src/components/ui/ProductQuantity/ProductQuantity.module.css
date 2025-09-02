@@ -7,7 +7,8 @@
 }
 
 .btn {
-  padding: 15px 16px;
+  padding: clamp(0.625rem, 0.4rem + 1vw, 0.9375rem)
+    clamp(0.6875rem, 0.4rem + 1.2vw, 1rem);
   outline: none;
   cursor: pointer;
   border: none;
@@ -26,23 +27,23 @@
 }
 
 .quantity {
-  font-size: 20px;
+  font-size: clamp(1rem, 0.75rem + 2vw, 1.25rem);
   color: var(--color-text);
   font-weight: 600;
-  padding: 16px 40px;
+  padding: clamp(0.625rem, 0.4rem + 1vw, 1rem)
+    clamp(1.875rem, 1.2rem + 2.5vw, 2.5rem);
   min-width: 2ch;
   text-align: center;
   display: flex;
   align-items: center;
 }
 
-@media (max-width: 930px) {
-  .btn {
-    padding: 10px 11px;
+@media (max-width: 687px) {
+  .selector {
+    align-self: center;
   }
 
   .quantity {
-    font-size: 16px;
-    padding: 10px 30px;
+    flex-direction: column;
   }
 }

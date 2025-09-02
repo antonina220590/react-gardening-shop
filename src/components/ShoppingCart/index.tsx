@@ -77,7 +77,7 @@ export default function ShoppingCart() {
           />
           {cartItems.length ? (
             <div className={styles.cart}>
-              <div>
+              <div className={styles.cartWrapper}>
                 {cartItems.map((item) => (
                   <ShoppingCartProduct
                     key={item.id}

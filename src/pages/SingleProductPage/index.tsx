@@ -1,5 +1,5 @@
-import ProductInfoComponent from '@/components/ProductInfo';
+import ProductInfo from '@/components/ProductInfo';
 
 export default function SingleProductPage() {
-  return <ProductInfoComponent />;
+  return <ProductInfo />;
 }

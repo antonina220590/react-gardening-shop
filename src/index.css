@@ -41,6 +41,9 @@ ol {
   --container-padding: 0 40px;
   --border-radius-main: 5px;
   --border-radius-big: 10px;
+
+  /* Padding */
+  --responsive-padding: clamp(1rem, 0.5rem + 2vw, 2rem);
 }
 
 .container {
