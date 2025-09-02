@@ -1,69 +1,78 @@
-# React + TypeScript + Vite
+# 🌱 Gardening Shop – React E-commerce Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fully-featured, responsive e-commerce web application for a gardening store, built with React and TypeScript.
 
-Currently, two official plugins are available:
+🔗 **Live Demo:** [https://gardening-shop.onrender.com](https://gardening-shop.onrender.com)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🎨 **Figma Design:** [Figma](https://www.figma.com/design/GjdhfxXIfFrglI3XO1fkwf/%D0%98%D1%82%D0%BE%D0%B3%D0%BE%D0%B2%D1%8B%D0%B9-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82--2024-?node-id=0-1&p=f&t=XO5QD8EulYWfzzqN-0)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📖 About The Project
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+This project was built as a portfolio piece to demonstrate a wide range of modern frontend development skills, including:
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- Building a complex, multi-page SPA with React.
+- Professional state management with Redux Toolkit and RTK Query.
+- Creating a clean, scalable, and maintainable component architecture.
+- Form handling & validation with React Hook Form and Yup.
+- Implementing a pixel-perfect, responsive design from a Figma mockup.
+- Full development cycle from setup to deployment.
+- Code quality enforced with ESLint, Prettier, Husky, and Vite.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ✨ Features
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **Product Browsing**: View all products, products by category, and sale items.
+- **Dynamic Filtering & Sorting**: Client-side filtering by price, discount status, and various sorting options.
+- **Shopping Cart**: Fully functional cart with the ability to add, remove, and change the quantity of items.
+- **Order Form**: A validated form to submit orders to the backend.
+- **Responsive Design**: The application is optimized for desktop, tablet, and mobile devices.
+- **Modern UX**: Includes features like lazy-loading for images, toast notifications for feedback, smooth navigation.
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## 🛠 Tech Stack
+
+- **Frontend**: React, TypeScript, React Router v7, Redux Toolkit (RTK Query), React Hook Form, Yup
+- **Styling**: CSS Modules
+- **Tooling**: Vite, ESLint, Prettier, Husky
+- **Deployment**: Render.com
+
+---
+
+## 🚀 Local Setup
+
+To run this project locally, follow these steps:
+
+1.  **Clone the repository:**
+
+    ```bash
+    git clone [https://github.com/antonina220590/react-gardening-shop](https://github.com/antonina220590/react-gardening-shop)
+    cd react-gardening-shop
+    ```
+
+2.  **Install dependencies:**
+
+    ```bash
+    npm install
+    ```
+
+3.  **Create a `.env.development` file** in the root and add the backend URL:
+
+    ```
+    VITE_API_BASE_URL=http://localhost:3333
+    ```
+
+4.  **Start the development server:**
+    ```bash
+    npm run dev
+    ```
+    The application will be available at `http://localhost:5173`.
+
+👉 _(Note: This project requires the corresponding [backend server](https://github.com/antonina220590/telran-backend) to be running locally on port 3333.)_
+
+## 📸 Demo
+
+![App Demo](/screenshots/GIF.gif)
