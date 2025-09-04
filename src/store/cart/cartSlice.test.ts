@@ -15,7 +15,7 @@ const mockProduct1: Product = {
   price: 800,
   discont_price: 750,
   description:
-    'This high quality everyday secateur features a fully hardened and tempered, high-carbon steel blade for lasting sharpness. ',
+    'This high quality everyday secateur features a fully hardened and tempered, high-carbon steel blade for lasting sharpness. ',
   image: '/images/scissors.jpg',
   createdAt: new Date().toISOString(),
   categoryId: '3',
