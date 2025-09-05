@@ -8,7 +8,7 @@ const mockProducts: Product[] = [
     id: 1,
     title: 'Old cheap product',
     price: 10,
-    discont_price: null,
+    discont_price: 0,
     createdAt: '2023-01-01T00:00:00.000Z',
     description: '',
     image: '',
@@ -28,7 +28,7 @@ const mockProducts: Product[] = [
     id: 3,
     title: 'New expensive product',
     price: 100,
-    discont_price: null,
+    discont_price: 0,
     createdAt: '2023-08-01T00:00:00.000Z',
     description: '',
     image: '',
@@ -112,9 +112,8 @@ describe('useProductFilters', () => {
     act(() => {
       result.current.handleSortChange('price_asc');
     });
-
-    const prices = result.current.filteredAndSortedProducts?.map(
-      (p) => p.discont_price ?? p.price
+    const prices = result.current.filteredAndSortedProducts?.map((p) =>
+      p.discont_price && p.discont_price > 0 ? p.discont_price : p.price
     );
     expect(prices).toEqual([10, 40, 90, 100]);
   });
@@ -126,9 +125,10 @@ describe('useProductFilters', () => {
       result.current.handleSortChange('price_desc');
     });
 
-    const prices = result.current.filteredAndSortedProducts?.map(
-      (p) => p.discont_price ?? p.price
+    const prices = result.current.filteredAndSortedProducts?.map((p) =>
+      p.discont_price && p.discont_price > 0 ? p.discont_price : p.price
     );
+
     expect(prices).toEqual([100, 90, 40, 10]);
   });
 

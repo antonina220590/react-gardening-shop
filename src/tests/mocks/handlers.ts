@@ -16,7 +16,7 @@ const mockProducts: Product[] = [
     id: 2,
     title: 'Golden Shovel',
     price: 300,
-    discont_price: null,
+    discont_price: 0,
     image: '/images/golden_shovel.png',
     createdAt: '2023-08-01T00:00:00.000Z',
     description: 'A shovel made of pure gold. It does not help with digging.',

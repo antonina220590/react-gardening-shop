@@ -47,7 +47,7 @@ export default function Header() {
     <>
       <header className={styles.header}>
         <div className={`container ${styles.wrapper}`}>
-          <Link to="/">
+          <Link to="/" onClick={() => setIsMenuOpen(false)}>
             <img className={styles.logo} src={logo} alt="Green Shop Logo" />
           </Link>
           <nav className={styles.navigation}>
@@ -58,7 +58,7 @@ export default function Header() {
             ))}
           </nav>
           <div className={styles.icons}>
-            <Link to="/cart">
+            <Link to="/cart" onClick={() => setIsMenuOpen(false)}>
               <div className={styles.cartContainer}>
                 <img className={styles.cart} src={icon} alt="basket" />
                 {totalCount > 0 && (

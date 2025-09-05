@@ -9,14 +9,14 @@
 
 .imageWrapper {
   display: flex;
-  padding: 3px;
-  align-items: center;
   border-right: 1px solid var(--color-grey-divider);
 }
 
 .image {
   width: 200px;
   height: 180px;
+  min-width: 100%;
+  min-height: 100%;
   border-top-left-radius: var(--border-radius-big);
   border-bottom-left-radius: var(--border-radius-big);
 }
@@ -106,6 +106,7 @@
     height: 99.9%;
     border-top-left-radius: var(--border-radius-big);
     border-top-right-radius: var(--border-radius-big);
+    border-bottom-left-radius: 0;
   }
 
   .titleWrapper {
