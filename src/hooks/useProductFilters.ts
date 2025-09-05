@@ -17,22 +17,31 @@ export function useProductFilters(initialProducts: Product[] | undefined) {
   const handleSortChange = (value: string) => {
     setSortOrder(value);
   };
-
   const filteredAndSortedProducts = useMemo(() => {
+    // Вспомогательная функция для чистоты кода
+    const getActualPrice = (product: Product) => {
+      return product.discont_price && product.discont_price > 0
+        ? product.discont_price
+        : product.price;
+    };
+
     return initialProducts
       ?.filter((product) => {
-        const productPrice = product.discont_price ?? product.price;
+        const productPrice = getActualPrice(product);
         const from = parseFloat(priceRange.from);
         const to = parseFloat(priceRange.to);
 
-        if (discountOnly && product.discont_price === null) return false;
+        const hasDiscount = product.discont_price && product.discont_price > 0;
+        if (discountOnly && !hasDiscount) return false;
+
         if (!isNaN(from) && productPrice < from) return false;
         if (!isNaN(to) && productPrice > to) return false;
         return true;
       })
       .sort((a, b) => {
-        const priceA = a.discont_price ?? a.price;
-        const priceB = b.discont_price ?? b.price;
+        const priceA = getActualPrice(a);
+        const priceB = getActualPrice(b);
+
         switch (sortOrder) {
           case 'price_asc':
             return priceA - priceB;
