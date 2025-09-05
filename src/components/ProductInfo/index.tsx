@@ -101,7 +101,9 @@ export default function ProductInfo() {
                 onIncrement={handleIncrement}
                 onDecrement={handleDecrement}
               />
-              <AddToCartButton product={product} quantity={quantity} />
+              <div className={styles.btnWrapper}>
+                <AddToCartButton product={product} quantity={quantity} />
+              </div>
             </div>
             <div className={styles.description}>
               <h2 className={styles.descriptionTitle}>Description</h2>
