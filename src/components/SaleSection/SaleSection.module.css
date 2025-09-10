@@ -1,0 +1,11 @@
+.sale {
+  margin-top: 80px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(316px, 1fr));
+  gap: 32px;
+  margin-top: 35px;
+  justify-items: center;
+}

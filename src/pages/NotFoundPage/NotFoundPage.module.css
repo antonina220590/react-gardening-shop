@@ -1,0 +1,39 @@
+.wrapper {
+  margin-top: 80px;
+}
+
+.notfound {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+  align-items: center;
+}
+
+.image {
+  width: 100%;
+  max-width: 690px;
+}
+
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 664px;
+}
+
+.title {
+  font-size: clamp(32px, 1.3rem + 3vw, 64px);
+  padding-bottom: 16px;
+}
+
+.info {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--color-grey);
+  text-align: center;
+}
+
+.btn {
+  width: 209px;
+}
